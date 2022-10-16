@@ -1,0 +1,3 @@
+This is my first hack at fptus,
+We don't need to use a for loop
+Easier than fputc function
