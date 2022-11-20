@@ -4,33 +4,21 @@
  * It is easy to draw the histogram with the bars horizontal; a vertical orientation is more challenging */
 int main(){
 	/* Initialize an integer counter for things?
-	 * iterator for list comprehension and final print statement
-	 * number of white space characters
-	 * number of other characters */
-	int c, i, nwhite, nother;
-	/* Initialize ten digit array */
-	int ndigit[10];
+	 * iterator for list comprehension and final print statement */
 
-	/* Set number of white and number of other characters to zero */
+	int c, i;
 
-	nwhite = nother = 0;
 
-	/* Set number of each digit to zero */
-
-	for (i = 0; i < 10; ++i)
-		ndigit[i] = 0;
-
+/* I need to modify this to create a list of letters for each word, and then print an '*' to the std followed by a 
+ * newline character */
 	while ((c = getchar()) != EOF)
-		if (c >= '0' && c <= '9')
-			++ndigit[c-'0'];
-		else if (c == ' ' || c == '\n' || c == '\t')
-			++nwhite;
+		if (c == ' ' || c == '\n' || c == '\t' )
+			printf("\n");
+		else if (c == ',' || c =='.' || c =='!' || c == '?')
+			printf(" ");
+
 		else
-			++nother;
-	printf("\ndigits =");
-	for (i = 0; i < 10; ++i)
-		printf(" %d", ndigit[i]);
-	printf(", white space = %d, other = %d\n", nwhite, nother);
+			printf("*");
 }
 
 
