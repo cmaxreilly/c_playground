@@ -3,7 +3,7 @@
  * energy equivalent of 5,800,000 Btu. For one test use an efficiency of 65 percent and 100 gallons of oil.
  *
  * Author: C. Maxwell Reilly
- * Date Written:
+ * Date Written: Feb 23, 2023
  */
 
 #include <stdio.h>
