@@ -1,0 +1,6 @@
+In order for exercise 1 to work for overtime, I would 
+have to add an input of type double for overtime hours
+worked. Then, in the algorithm area of the program, I 
+would have to set gross salary equal to normal hours 
+worked times hourly rate, plus overtime hours worked 
+times hourly rate time 1.5.
