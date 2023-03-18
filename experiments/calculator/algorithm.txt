@@ -1,0 +1,51 @@
+I would like to make a calculator program that takes and expression from the command line, parses the expression, and evaluates the expression. 
+
+Here is my hack at an algorithm for this task.
+Taken from https://www.andrew.cmu.edu/course/15-200/s06/applications/ln/junk.html
+
+Features:
+1. Handles parentheses
+2. Ignores whitespace
+3. Does all functions in the math.h header file.
+4. Can take its own output as input.
+
+Required Data Structures
+>> Stack for converting from infix to reverse Polish.
+>> Array to store postfix output
+>> Stack for evaluation of postfix output.
+>> Table for precedence
+
+-----------------------------
+|       | Precedence        |
+-----------------------------
+|Operator   |Stack  | Input |
+|)          |N/A    |0      |
+|(          |0      |5      |
+|+,-        |2      |1      |
+|*,/        |4      |3      |
+-----------------------------
+Algorithm
+>> Enter interactive mode on command line.
+>> Read user input.
+>> Parse user input into reverse Polish.
+    0. Initialize the stack by pushing a (" -- this serves to mark the beginning of the stack and give it initial precedence. Append a ")" to the input to pop the initial "(" from the stack.
+    1. If the input is empty, go to Finished.
+    2. Read one token (operand, parenthesis, operator_ from the input.
+    3. If the token is an operand, output it and goto Step 1.
+    4. Look up the precedence of the precedence of the input token in the "Input" column of the precedence table.
+    5. Look up the precedence of the token on top of the stack in the "Stack" column of the precedence table.
+    6. If the precednece of the top of the stack is greater than or equal to the precedence of the input, first pop the token off the top of the stack. If it is not a "(", output it. Either way, got to Step 5. Otherwise, if the precedence of the top of the stack is less than the precedence of the
+    input, then if the input token is not a ")", push it onto the stack.
+    7. Go to step 1.
+    Finished
+>> Enter reverse polish notation into output array.
+>> Evaluate reverse polish expression on the output array.
+    * Any time you see an operand, push it onto the stack.
+    * Any time you see a binary operator (+,-,*,/) or unary (square root, negative sign) operator,
+        * If the operator is binary, pop two elements off of the stack.
+        * If the operator is unary, pop one element off the stack.
+        * Evaluate those opearands with that operator
+        * Push the result back onto the stack. 
+    * Once input is empty, the only thing left on the stack is the final result. If there are zero or more than 1 operands left on the stack, either the program is flawed, or the expression was invalid. 
+    2. 
+>> Print evaluated expression.

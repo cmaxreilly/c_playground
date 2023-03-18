@@ -1,0 +1,7 @@
+Algorithm
+    Required data structures: Stacks for parentheses, operands, and operators.
+>> Enter interactive mode on command line.
+>> Read user input.
+>> Push user inputs onto stacks
+
+>> Print evaluated expression.
