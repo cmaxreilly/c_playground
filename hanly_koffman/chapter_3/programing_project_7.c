@@ -14,7 +14,7 @@
  *
  * Started: Sunday April 9, 2023
  *
- * Finished:
+ * Finished: Sunday April 9, 2023
  */
 
 #include<stdio.h>
@@ -25,13 +25,15 @@ double compute_accel(double t, double vi, double vf);
 double compute_t_to_rest(double a, double vi);
 void report(void);
 
-double t, vi, vf;
+double t, vi, vf, a, time_to_rest;
 
 int
 main(void)
 {
     instruct();
     data_input();
+    a = compute_accel(t, vi, vf);
+    time_to_rest = compute_t_to_rest(a, vi);
     report();
     return(0);
 }
@@ -47,26 +49,30 @@ instruct(void)
 void
 data_input(void)
 {
-    printf("\nEnter time >> ");
+    printf("\nEnter time in minutes >> ");
     scanf("%lf", &t);
-    printf("Enter initial velocity >> ");
+    printf("Enter initial velocity in mph >> ");
     scanf("%lf", &vi);
-    printf("Enter final velocity >> ");
+    printf("Enter final velocity in mph >> ");
     scanf("%lf", &vf);
 }
 double 
 compute_accel(double t, double vi, double vf)
 {
-    return(0);
+    double a;
+    a = (vf -vi)/t;
+    return(a);
 }
 
 double compute_t_to_rest(double a, double vi)
 {
-    return(0);
+    double time_to_rest;
+    time_to_rest = (0 - vi) / a;
+    return(time_to_rest);
 }
 
 void
 report(void)
 {
-    printf("Time = %.2f\nVi = %.2f\n Vf = %.2f\n", t, vi, vf);
+    printf("Time = %.2f\nVi = %.2f\n Vf = %.2f\n a = %.2f mph\nTime to rest = %.2f minutes\n", t, vi, vf, a, time_to_rest);
 }
