@@ -24,13 +24,15 @@ main(void)
     if (strcmp(&usr ,"s") == 0){
         printf("Enter the length of one of the sides >> ");
         scanf("%lf", &side);
-        printf("Your square has an area of %.2lf", side * side);
+        printf("Your square has an area of %.2lf\n", side * side);
     } else if (strcmp(&usr, "t") == 0) {
+        double area;
         printf("Enter the height of your triangle >> ");
         scanf("%lf", &height);
         printf("Enter the base of your triangle >> ");
         scanf("%lf", &base);
-        printf("Your triangle has an area of %.2lf\n", 1/2 * base * height);
+        area = 1.0/2.0 * base * height;
+        printf("Your triangle has an area of %.2lf\n", area);
     } else {
         printf("Invalid option\n");
     }
