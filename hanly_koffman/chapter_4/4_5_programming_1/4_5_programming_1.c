@@ -1,15 +1,22 @@
 /*
  * Computes and prints a water bill given an unpaid balance and previous and 
  * current meter readings. Bill includes a demand charge of 35.00, a use 
- * charge of $1.10 per thousand gallons, and a surcharge of $2.00 if there is 
+ * charge of $1.10 per thousand galons, and a surcharge of $2.00 if there is 
  * an unpaid balance.
+ */
+
+/* 
+ * Programming Exercise 1/Self check 1:
+ * change the algorith for function comp_use_charge assuming assuming the fee is 
+ * doubled for any gallons used in excess of 100,000. The basic fee is assessed
+ * for the first 100,000 gallons used.
  */
 
 #include<stdio.h>
 
 #define DEMAND_CHG  35.00   /* basic water demand charge                */
-#define PER_1000_CHG 1.10   /* charge per thousand gallons used         */
-#define LATE_CHG     2.00   /* surcharge assessed on unpaid balance      */
+#define PER_1000_CHG 1.00   /* charge per thousand gallons used         */
+#define LATE_CHG     2.00   /* surcharge assessed on upaid balance      */
 
 /* Function prototypes                                                  */
 void instruct_water(void);
@@ -38,7 +45,7 @@ main(void)
 
     /* Get data: unpaid balance, previous and current meter
      * readings.                                                            */
-    printf("\nEnter unpaid balance >> $");
+    printf("Enter unpaid balance >> ");
     scanf("%lf", &unpaid);
     printf("Enter previous meter reading >> ");
     scanf("%d", &previous);
@@ -67,12 +74,12 @@ main(void)
 void
 instruct_water(void)
 {
-    printf("\nThis program figures a water bill ");
+    printf("This program figures a water bill ");
     printf("based on the demand charge\n");
     printf("($%.2f) and a $%.2f per 1000 ", DEMAND_CHG, PER_1000_CHG);
     printf("gallons per use charge.\n\n");
     printf("A $%.2f surcharge is added to ", LATE_CHG);
-    printf("accounts with an unpaid balance.\n");
+    printf("accounts with an upaid balance.\n");
     printf("\nEnter unpaid balance, previous ");
     printf("and current meter readings\n");
     printf("on separate lines after the prompts.\n");
@@ -87,12 +94,7 @@ instruct_water(void)
 double
 comp_use_charge(int previous, int current)
 {
-    int used;       /* gallons of water used (in thousands)                 */
-    double use_charge;  /* charge for actual water use                      */
-
-    used = current - previous;
-    use_charge = used * PER_1000_CHG;
-    return (use_charge);
+    return(0);
 }
 
 /*
@@ -105,7 +107,7 @@ comp_late_charge(double unpaid)
     double late_charge; /* charge for non-payment of part of previous
                            balance                                          */
     if (unpaid > 0)
-        late_charge = LATE_CHG;     /* Assesses late charge on unpaid balance*/
+        late_charge = LATE_CHG;     /* Asseses late charge on unpaid balance*/
     else
         late_charge = 0.0;
 
@@ -120,7 +122,7 @@ void
 display_bill(double late_charge, double bill, double unpaid)
 {
     if (late_charge > 0.0) {
-        printf("\nBill includes $%.2f late charge", late_charge);
+        printf("\nBille includes $%.2f late chage", late_charge);
         printf(" on unpaid balance of $%.2f\n", unpaid);
     }
     printf("\nTotal due = $%.2f\n", bill);
