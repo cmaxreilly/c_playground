@@ -1,0 +1,18 @@
+This text document is testing the ed text editor.
+It seems that most people don't realize that the 
+ed text editor is not pronounced ed, but E.D.
+
+Call ed with a prompt by using the "ed -p '$PROMPT' $DOCUMENT"
+* type 'H' in command mode to get proper error messages.
+* type 'a' in command mode to append lines to the document.
+* end an editing session by typing '.', followed by enter.
+* print all of the lines in your document with ",p".
+* print all lines with line numbers with ",n".
+* print out current line with "p"
+* print out a specific line with "$LINE#p".
+* print out a range with "1,2p".
+* use "i" to insert a line before the current line.
+* delete current line with "d", or delete a specific line with "$LNd".
+* copy lines to a position with "2t0"
+* move lines with "1m2" meaning move line one to line 2.
+* search for a string with "/string"
