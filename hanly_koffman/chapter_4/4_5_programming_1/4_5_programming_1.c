@@ -16,6 +16,8 @@
 
 #define DEMAND_CHG  35.00   /* basic water demand charge                */
 #define PER_1000_CHG 1.00   /* charge per thousand gallons used         */
+#define HIGH_USE   100.00   /* threshold after which high use fees kick in. */
+#define HU_PER_1000  2.00   /* charge per thousand past 100,000 gallons.*/
 #define LATE_CHG     2.00   /* surcharge assessed on upaid balance      */
 
 /* Function prototypes                                                  */
@@ -78,6 +80,9 @@ instruct_water(void)
     printf("based on the demand charge\n");
     printf("($%.2f) and a $%.2f per 1000 ", DEMAND_CHG, PER_1000_CHG);
     printf("gallons per use charge.\n\n");
+    printf("In addition, any usage beyond $%.2f,000 ", HIGH_USE);
+    printf("gallons is considered high use, \nand is billed ");
+    printf("at double the normal rate.");
     printf("A $%.2f surcharge is added to ", LATE_CHG);
     printf("accounts with an upaid balance.\n");
     printf("\nEnter unpaid balance, previous ");
@@ -94,7 +99,14 @@ instruct_water(void)
 double
 comp_use_charge(int previous, int current)
 {
-    return(0);
+    double difference, charge;
+    difference = current - previous;
+    if (difference < HIGH_USE){
+        charge = difference * PER_1000_CHG;
+    } else if (difference > HIGH_USE){
+        charge = (HIGH_USE * PER_1000_CHG) + ((difference - HIGH_USE) * HU_PER_1000);
+    }
+    return(charge);
 }
 
 /*
@@ -122,7 +134,7 @@ void
 display_bill(double late_charge, double bill, double unpaid)
 {
     if (late_charge > 0.0) {
-        printf("\nBille includes $%.2f late chage", late_charge);
+        printf("\nBill includes $%.2f late chage", late_charge);
         printf(" on unpaid balance of $%.2f\n", unpaid);
     }
     printf("\nTotal due = $%.2f\n", bill);
