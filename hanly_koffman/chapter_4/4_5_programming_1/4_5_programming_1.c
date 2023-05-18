@@ -105,6 +105,8 @@ comp_use_charge(int previous, int current)
         charge = difference * PER_1000_CHG;
     } else if (difference > HIGH_USE){
         charge = (HIGH_USE * PER_1000_CHG) + ((difference - HIGH_USE) * HU_PER_1000);
+    } else {
+        printf("!!!INVALID INPUT!!!");
     }
     return(charge);
 }
