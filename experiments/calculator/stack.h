@@ -12,7 +12,7 @@ int top = -1, inp_array[SIZE];
 void push();
 void pop();
 void show();
-
+void push_to_stack(int* top, int* array[SIZE]);
 void push ()
 {
     int x;
