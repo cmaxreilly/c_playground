@@ -28,7 +28,7 @@ Algorithm
 >> Enter interactive mode on command line.
 >> Read user input.
 >> Parse user input into reverse Polish.
-    0. Initialize the stack by pushing a (" -- this serves to mark the beginning of the stack and give it initial precedence. Append a ")" to the input to pop the initial "(" from the stack.
+    0. Initialize the stack by pushing a "(" -- this serves to mark the beginning of the stack and give it initial precedence. Append a ")" to the input to pop the initial "(" from the stack.
     1. If the input is empty, go to Finished.
     2. Read one token (operand, parenthesis, operator_ from the input.
     3. If the token is an operand, output it and goto Step 1.

@@ -12,6 +12,7 @@
 
 
 #include <stdio.h>
+#include <ctype.h>
 
 #define MAX_SIZE 100
 
@@ -39,6 +40,14 @@ pop_from_stack(char* stack, int* top)
     return(value);
 
 }
+
+int
+getch(void)
+{
+    return (bufp > 0) ? buf[--bufp] : getchar();
+}
+void ungetch(int);
+
 
 int main() {
     char stack[MAX_SIZE];
