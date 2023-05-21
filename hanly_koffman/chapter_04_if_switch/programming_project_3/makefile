@@ -1,2 +1,2 @@
-compass: headings.c
-	gcc -o compass headings.c -I.
+richter: richter_characterization.c
+	gcc -o richter richter_characterization.c -I.
