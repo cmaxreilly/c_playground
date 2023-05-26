@@ -13,41 +13,17 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include "stack.h"
 
-#define MAX_SIZE 100
 
-void
-push_to_stack(char* stack, int* top, char value)
-{
-    if (*top == MAX_SIZE - 1) {
-        printf("Stack Overflow: Cannot push value '%c' to stack.\n", value);
-        return;
-    }
-    *top = *top + 1;
-    stack[*top] = value;
-}
 
-char
-pop_from_stack(char* stack, int* top)
-{
-    char value;
-    if (*top == 0) {
-        printf("Stack underflow: Cannot pop value from stack.\n");
-        return(0);
-    }
-    value = stack[*top]  ;
-    *top = *top - 1;
-    return(value);
-
-}
-
-int
+/* int
 getch(void)
 {
     return (bufp > 0) ? buf[--bufp] : getchar();
 }
 void ungetch(int);
-
+*/
 
 int main() {
     char stack[MAX_SIZE];
