@@ -26,9 +26,9 @@ main(void)
     printf("    Degrees     sine     cosine\n");
 
     /* Display the table */
-    for     (degree = 0 /*init_degree*/;
-            degree <= 360 /*final_degree*/;
-            degree += 10 /*step_degree*/) {
+    for     (degree = init_degree;
+            degree <= final_degree;
+            degree += step_degree){
         sine = sin(degree * (PI / 180));
         cosine = cos(degree * (PI / 180));
         printf("%6c%3d%8c%7.2f%8c%7.2f\n", ' ', degree, ' ', sine, ' ', cosine);
