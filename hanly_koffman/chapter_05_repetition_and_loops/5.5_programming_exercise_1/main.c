@@ -20,7 +20,6 @@ main(void)
     init_degree = 0;
     final_degree = 360;
     step_degree = 10;
-    degree = 0;
 
     /* Display the table heading */
     printf("    Degrees     sine     cosine\n");
