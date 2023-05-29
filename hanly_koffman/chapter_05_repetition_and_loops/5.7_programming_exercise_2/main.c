@@ -10,11 +10,10 @@
 int
 main(void)
 {
-    int a, i, n;
-    if (a < CONTROL) {
+    int i, n;
         for     (i = 0;
-                i <= CONTROL;
-                i++, a++) {
+                i < CONTROL;
+                i++) {
             for     (n = 0;
                     n <= i;
                     n ++) {
@@ -22,11 +21,9 @@ main(void)
             }
             printf("\n");
         }
-    } else 
-    {
         for     (i = CONTROL;
                 i >= 0;
-                i--, a++) {
+                i--) {
             for     (n = 0;
                     n <= i;
                     n ++) {
@@ -34,7 +31,6 @@ main(void)
             }
             printf("\n");
         }
-    }
     return(0);
 
 }
