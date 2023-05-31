@@ -1,9 +1,10 @@
 
+#Global Constants
+
+CONTROL = 4
+
 def main():
-    for multiplicand in range(0, 9):
-        for multiplier in range(0,9):
-            product = multiplicand * multiplier
-            print(f"{product:2d}  ", end="")
-        print("\n")
+    for i in range(0, CONTROL):
+
 if __name__ == "__main__":
     main()
