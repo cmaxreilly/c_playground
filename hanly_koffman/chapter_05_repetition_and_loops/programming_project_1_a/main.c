@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 #define MAX_NUM 100
-#define TEST 0
+#define TEST 1
 
 int numbers[MAX_NUM];
 int n;
@@ -25,6 +25,9 @@ main(void)
     instruct();
     get_n();
     get_numbers();
+    find_smallest();
+    find_largest();
+    find_average();
     if (TEST)
     {
         int i;
@@ -35,7 +38,7 @@ main(void)
             printf("%d\n", numbers[i]);
         }
     }
-    printf("The smallest number in the group is: %d\n", find_smallest());
+    printf("the smallest number in the group is: %d\n", find_smallest());
     return(0);
 
 }
@@ -43,7 +46,7 @@ main(void)
 void
 instruct(void)
 {
-    printf("This program takes a list of numbers and figures out\n");
+    printf("this program takes a list of numbers and figures out\n");
     printf("the smallest, largest, and average values in that list.\n");
 }
 
@@ -64,6 +67,7 @@ get_numbers(void)
         scanf("%d", &numbers[i - 1]);
         i ++;
     } while (i <= n);
+    return;
 }
 
 int
@@ -72,20 +76,40 @@ find_smallest(void)
     int i;
     int smallest;
     i = 0;
-    do {
-        smallest = numbers[i];
+    smallest = numbers[i];
+    printf("smallest = %d\n", smallest);
+    for     (i = 0;
+            i < n - 1;
+            i++) {
+               if (TEST)
+                   printf("smallest = %d, numbers[i + 1] = %d\n", smallest, numbers[i + 1]);
         if (smallest > numbers[i + 1])
             smallest = numbers[i + 1];
         else
             ;
-    } while (i <= n);
+    }
     return smallest;
 }
 
 int
 find_largest(void)
 {
-    return 0;
+    int i;
+    int largest;
+    i = 0;
+    largest = numbers[i];
+    printf("largest = %d\n", largest);
+    for     (i = 0;
+            i < n - 1;
+            i++) {
+               if (TEST)
+                   printf("largest = %d, numbers[i + 1] = %d\n", largest, numbers[i + 1]);
+        if (largest < numbers[i + 1])
+            largest = numbers[i + 1];
+        else
+            ;
+    }
+    return largest;
 }
 
 int
