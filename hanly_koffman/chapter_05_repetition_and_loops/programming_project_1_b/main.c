@@ -4,6 +4,7 @@
  */
 
 #include <stdio.h>
+#include <math.h>
 
 #define MAX_NUM 100
 #define TEST 0
@@ -17,6 +18,7 @@ void get_numbers(void);
 int find_smallest(void);
 int find_largest(void);
 double find_average(void);
+double find_standard_deviation(void);
 void print_numbers(void);
 
 
@@ -41,6 +43,8 @@ main(void)
         print_numbers();
     }
     printf("The average of the group is: %.2f\n", find_average());
+
+    printf("The standard devation of the group is: %.2f\n", find_standard_deviation());
     return(0);
 
 }
@@ -140,5 +144,38 @@ print_numbers(void)
             printf("%d\n", numbers[i]);
         }
     return;
+}
+
+
+// standard deviation = √(sum_squares/N - average **2)
+
+double
+find_standard_deviation(void)
+{
+    int sum_squares = 0;
+    double standard_deviation;
+    double average;
+    average = find_average();
+    int i;
+    for
+        (i = 0;
+         i < n;
+         i++)
+        {
+            if (TEST)
+            {
+                printf("numbers[%d] = %d\n", i, numbers[i]);
+            }
+            sum_squares = sum_squares + (numbers[i] * numbers[i]);
+        }
+    if (TEST)
+    {
+        printf("sum_squares = %d\n", sum_squares);
+        printf("average = %.2f\n", average);
+    }
+
+    standard_deviation = sqrt(sum_squares/n - (average * average));
+
+    return standard_deviation;
 }
 
