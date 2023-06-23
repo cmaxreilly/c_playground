@@ -1,0 +1,19 @@
+the environmental Awareness Club of BigCorp International is proposing
+that the company subsidize at $.08 per passenger km the commuting costs of
+employees who form carpools that meet a prescribed minimum passenger
+efficiency. Passenger efficiency P (in passenger-kilometers per liter) is
+defined as
+
+        P = ns / l
+
+where n is the number of passengers, s is the distance traveled in km, and l is
+the number of liters of gasoline used.
+
+Write a program that prompts the user for a minimum passenger effi-
+ciency and then processes a file of data on existing carpools
+(carpool.dat), displaying a table of all carpools that meet the passenger
+efficiency minimum. the file represents each carpool as a data line contain-
+ing three numbers: the number of people in the carpool, the total commuting
+distance per five-day week, and the number of liters of gasoline consumed in
+a week of commuting. The data file ends with a line of zeros. Display your
+results wth this format: (pg 271)
