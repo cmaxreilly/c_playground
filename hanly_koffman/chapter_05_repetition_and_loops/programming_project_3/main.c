@@ -58,13 +58,29 @@ process_line(double min_p_e)
     int num_passengers;
     double distance_traveled,
            l_gas_per_week,
+           passenger_efficiency,
            weekly_subsidy;
     inp = fopen("carpool.dat", "r");
     fscanf(inp, "%d", &num_passengers);
     fscanf(inp, "%lf", &distance_traveled);
     fscanf(inp, "%lf", &l_gas_per_week);
-    printf("first num passengers = %d\n", num_passengers);
-    printf("first distance traveled = %.2lf\n", distance_traveled);
-    printf("second liters of gas per week = %.2lf\n", l_gas_per_week);
+    while (distance_traveled * l_gas_per_week * weekly_subsidy != 0)
+    {
+        printf("%d%lf%lf\n", num_passengers, distance_traveled, l_gas_per_week);
+        fscanf(inp, "%d", &num_passengers);
+        fscanf(inp, "%lf", &distance_traveled);
+        fscanf(inp, "%lf", &l_gas_per_week);
+    }
+
+}
+
+double
+calc_passenger_efficiency(int num_of_people, 
+        int commute_distance, 
+        double l_gas_per_week)
+{
+    double passenger_efficiency;
+    passenger_efficiency = num_of_people * commute_distance / l_gas_per_week;
+    return passenger_efficiency;
 }
 
