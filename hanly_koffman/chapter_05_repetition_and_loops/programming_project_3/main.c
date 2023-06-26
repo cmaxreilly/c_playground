@@ -15,7 +15,7 @@ double calc_passenger_efficiency(int num_of_people,
         int commute_distance, 
         double l_gas_per_week);
 
-int
+    int
 main(void)
 {
     // main variables
@@ -33,7 +33,7 @@ main(void)
 
 
 /* Get minimum passenger efficiency */
-double
+    double
 get_min_p_e(void) 
 {
     double min_p_e;
@@ -42,7 +42,7 @@ get_min_p_e(void)
     return(min_p_e);
 }
 
-void
+    void
 print_header(double min_p_e)
 {
     printf("\n    CARPOOLS MEETING MINIMUM PASSENGER EFFICINCY OF %.2f KM / L \n\n", min_p_e);
@@ -50,7 +50,7 @@ print_header(double min_p_e)
     printf("                   (km)         Consumption(L)   (pass km / L)    Subsidy($)\n\n");
 }
 
-void
+    void
 process_line(double min_p_e)
 {
     FILE *inp;
@@ -66,15 +66,24 @@ process_line(double min_p_e)
     fscanf(inp, "%lf", &l_gas_per_week);
     while (distance_traveled * l_gas_per_week * weekly_subsidy != 0)
     {
-        printf("%d%lf%lf\n", num_passengers, distance_traveled, l_gas_per_week);
-        fscanf(inp, "%d", &num_passengers);
-        fscanf(inp, "%lf", &distance_traveled);
-        fscanf(inp, "%lf", &l_gas_per_week);
+        if (calc_passenger_efficiency(distance_traveled, l_gas_per_week, weekly_subsidy) <= min_p_e)
+        {
+            printf("%d%lf%lf%lf\n", num_passengers, distance_traveled, l_gas_per_week, calc_passenger_efficiency(num_passengers, distance_traveled, l_gas_per_week));
+            fscanf(inp, "%d", &num_passengers);
+            fscanf(inp, "%lf", &distance_traveled);
+            fscanf(inp, "%lf", &l_gas_per_week);
+        } else
+        {
+            fscanf(inp, "%d", &num_passengers);
+            fscanf(inp, "%lf", &distance_traveled);
+            fscanf(inp, "%lf", &l_gas_per_week);
+        }
     }
+
 
 }
 
-double
+    double
 calc_passenger_efficiency(int num_of_people, 
         int commute_distance, 
         double l_gas_per_week)
