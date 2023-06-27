@@ -1,0 +1,72 @@
+PROBLEM
+
+the environmental Awareness Club of BigCorp International is proposing
+that the company subsidize at $.08 per passenger km the commuting costs of
+employees who form carpools that meet a prescribed minimum passenger
+efficiency. Passenger efficiency P (in passenger-kilometers per liter) is
+defined as
+
+        P = ns / l
+
+where n is the number of passengers, s is the distance traveled in km, and l is
+the number of liters of gasoline used.
+
+Write a program that prompts the user for a minimum passenger effi-
+ciency and then processes a file of data on existing carpools
+(carpool.dat), displaying a table of all carpools that meet the passenger
+efficiency minimum. the file represents each carpool as a data line contain-
+ing three numbers: the number of people in the carpool, the total commuting
+distance per five-day week, and the number of liters of gasoline consumed in
+a week of commuting. The data file ends with a line of zeros. Display your
+results wth this format: (pg 271)
+
+
+ALGORITHM
+
+(draft 3)
+
+1. Get minimum passenger efficientcy from user
+
+    a. prompt user
+    b. scan efficiency to variable
+    c. check if variable is correct type
+    if (variable is correct type)
+        return
+    else
+        prompt user for correction
+
+2. Print Header
+
+3. Process line fom file
+    scan line from file
+    while (line not "0 0 0") {
+        calc passage efficiency
+        if (passenger efficiency > minimum passenger efficiency)
+            scan next line
+        else
+            print data
+            scan next line
+            calc passenger efficiency
+    }
+
+DATA
+
+Global variables:
+    input variables
+        double minimum passenger efficiency
+
+    output variables
+        double passenger efficiency
+        int numbr of passengers
+        double distance traveled in km
+        double liters of gasoline used
+
+
+
+
+FUNCTIONS
+
+1. Scan line from file
+2. Calculate passenger efficiency
+3. Print line of data
+4. Scan required passenger efficiency
