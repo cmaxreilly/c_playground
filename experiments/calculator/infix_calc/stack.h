@@ -1,3 +1,5 @@
+
+
 /* A small program that instantiates and modifies a stack from the command line. 
  * Copied from https://www.digitalocean.com/community/tutorials/stack-in-c
  */
@@ -6,6 +8,10 @@
 
 #include <stdlib.h>
 
+void push(double stack[], int* i);
+void pop(double stack[], int* i);
+
+/*
 #define SIZE 4
 
 int top = -1, inp_array[SIZE];
@@ -57,4 +63,4 @@ void show ()
             printf("%d\n", inp_array[i]);
     }
 }
-
+*/
