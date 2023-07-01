@@ -32,17 +32,16 @@ one of the steps (1) through (5):
 
 
 Things I need to figure out
-    * How to create a precedence tree.
 
 
 
 Things I need to implement
+    * Algorithm implementation in driver code
+    * Compile header files
+    * How to create a precedence tree.
+
+Things I have implemented
     * A function that pops things from a given stack.
     * A function that pushes things to a given stack.
     * A function that shows the top of a given stack.
-    * Algorithm implementation in driver code
-    * Compile header files
-
-Things I have implemented
-
 
