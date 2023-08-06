@@ -43,5 +43,3 @@ find_gcd(int num_1, int num_2)
     result = num_2;
     return result;
 }
-
-

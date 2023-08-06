@@ -92,4 +92,3 @@ calc_passenger_efficiency(int num_of_people,
     passenger_efficiency = num_of_people * commute_distance / l_gas_per_week;
     return passenger_efficiency;
 }
-
