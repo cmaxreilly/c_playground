@@ -35,11 +35,18 @@ find_gcd(int num_1, int num_2)
         num_1 = num_2;
         num_2 = temp;
     }
-    do {
-        remainder = num_1 % num_2;
-        num_2 = num_1;
-        num_1 = remainder;
-    } while (remainder != 0);
-    result = num_2;
+    if (num_1 % num_2 == 0)
+    {
+        result = num_2;
+    }
+    else
+    {
+        do {
+            remainder = num_1 % num_2;
+            num_2 = num_1;
+            num_1 = remainder;
+        } while (remainder != 0);
+        result = num_2;
+    }
     return result;
 }
