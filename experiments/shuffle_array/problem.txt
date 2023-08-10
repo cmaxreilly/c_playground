@@ -1,0 +1,12 @@
+Problem
+
+I would like to create a utility that shuffles pitches randomly and prints all
+of the possibilities in C. The first thing I need to do is figure out how to
+shuffle an array of letters in C. I would like to shuffle an array of pointers
+so that the original array stays intact. This will involve use of pointers and
+use of the random syscall, which will be the first time I have used a syscall in
+C.
+
+Note: This is much more complicated of a problem than I thought. I will spend
+the rest of my time just studying C. and practicing the syntax. Once I am better
+at that, I will start sitting down and working on algorithms in C.

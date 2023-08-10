@@ -7,12 +7,14 @@
 
 #include <stdio.h>
 
+#define TEST 0
+
 // function prototypes
 double get_min_p_e(void); /* Get minimum passenger efficiency */
 void print_header(double min_p_e);
 void process_line(double min_p_e);
 double calc_passenger_efficiency(int num_of_people, 
-        int commute_distance, 
+        double commute_distance, 
         double l_gas_per_week);
 
     int
@@ -60,32 +62,29 @@ process_line(double min_p_e)
            l_gas_per_week,
            passenger_efficiency,
            weekly_subsidy;
+    if (TEST)
+        printf("Hello from the function proces_line()\n");
+
     inp = fopen("carpool.dat", "r");
+    do
+    {
     fscanf(inp, "%d", &num_passengers);
     fscanf(inp, "%lf", &distance_traveled);
     fscanf(inp, "%lf", &l_gas_per_week);
-    while (distance_traveled * l_gas_per_week * weekly_subsidy != 0)
+    if (TEST)
+        printf("Num passengers = %d, distance travelled = %f, l gas = %f.\n", num_passengers, distance_traveled, l_gas_per_week);
+    passenger_efficiency = calc_passenger_efficiency(num_passengers, distance_traveled, l_gas_per_week);
+    if (passenger_efficiency <= min_p_e)
     {
-        if (calc_passenger_efficiency(distance_traveled, l_gas_per_week, weekly_subsidy) <= min_p_e)
-        {
-            printf("%d%lf%lf%lf\n", num_passengers, distance_traveled, l_gas_per_week, calc_passenger_efficiency(num_passengers, distance_traveled, l_gas_per_week));
-            fscanf(inp, "%d", &num_passengers);
-            fscanf(inp, "%lf", &distance_traveled);
-            fscanf(inp, "%lf", &l_gas_per_week);
-        } else
-        {
-            fscanf(inp, "%d", &num_passengers);
-            fscanf(inp, "%lf", &distance_traveled);
-            fscanf(inp, "%lf", &l_gas_per_week);
-        }
+        printf("%4c%2d%14c%2.0f%15c%2.1f%14c%2.1f%14c\n", ' ', num_passengers, ' ', distance_traveled, ' ', l_gas_per_week, ' ', passenger_efficiency, ' ');
     }
-
-
+    } while (distance_traveled * l_gas_per_week * weekly_subsidy != 0);
+ 
 }
 
-    double
+double
 calc_passenger_efficiency(int num_of_people, 
-        int commute_distance, 
+        double commute_distance, 
         double l_gas_per_week)
 {
     double passenger_efficiency;
