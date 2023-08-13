@@ -1,7 +1,7 @@
 /*
  * Author: C. Maxwell Reilly
  * Started: Friday, Jun 23, 2023
- * Finished:
+ * Finished: Sunday, August 13, 2023
  */
 
 
@@ -16,6 +16,7 @@ void process_line(double min_p_e);
 double calc_passenger_efficiency(int num_of_people, 
         double commute_distance, 
         double l_gas_per_week);
+double calc_subsidy(int passengers, double kilometers);
 
     int
 main(void)
@@ -76,7 +77,12 @@ process_line(double min_p_e)
     passenger_efficiency = calc_passenger_efficiency(num_passengers, distance_traveled, l_gas_per_week);
     if (passenger_efficiency <= min_p_e)
     {
-        printf("%4c%2d%14c%2.0f%15c%2.1f%14c%2.1f%14c\n", ' ', num_passengers, ' ', distance_traveled, ' ', l_gas_per_week, ' ', passenger_efficiency, ' ');
+        weekly_subsidy = calc_subsidy(num_passengers, distance_traveled);
+        printf("%6d", num_passengers);
+        printf("%16.0f", distance_traveled);
+        printf("%18.1f", l_gas_per_week);
+        printf("%17.1f", passenger_efficiency);
+        printf("%17.2f\n", weekly_subsidy);
     }
     } while (distance_traveled * l_gas_per_week * weekly_subsidy != 0);
  
@@ -90,4 +96,11 @@ calc_passenger_efficiency(int num_of_people,
     double passenger_efficiency;
     passenger_efficiency = num_of_people * commute_distance / l_gas_per_week;
     return passenger_efficiency;
+}
+
+double
+calc_subsidy(int passengers, double kilometers)
+{
+    double subsidy = passengers * kilometers;
+    return subsidy;
 }
