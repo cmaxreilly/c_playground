@@ -1,16 +1,13 @@
 /*
  * Author: C. Maxwell Reilly
  * Started: August 16, 2023
- * Finished:
+ * Finished: August 17, 2023
  */
 
 
 #include <stdio.h>
 
-#define TEST 1
-
-// function prototypes
-int sort_array(int *array);
+#define TEST 0
 
 int
 main(void)
@@ -33,7 +30,7 @@ main(void)
     {
         key = array[j];
         i = j - 1;
-        while (i > 0 && array[i] > key)
+        while (i >= 0 && array[i] > key)
         {
             array[i + 1] = array[i];
             i = i -1;
@@ -45,6 +42,7 @@ main(void)
     {
         printf("%d, ", array[i]);
     }
+    printf("} \n\n");
     return 0;
 }
 
