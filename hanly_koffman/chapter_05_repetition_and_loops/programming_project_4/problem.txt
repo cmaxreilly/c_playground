@@ -1,0 +1,10 @@
+PROBLEM
+
+Let n be a positive integer consisting of up to 10 digits, d10, d9, ..., d1.
+Write a program to list in one column each of the digits in the number n. The
+rightmost digit, d1, should e listed at the top of the column. Hint: If n is
+3704, what is the value of the digit when computed by using 
+
+digit = n % 10;
+
+Test your program for values of n equal to 6, 3704, and 170,498.
