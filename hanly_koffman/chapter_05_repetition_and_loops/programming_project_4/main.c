@@ -10,33 +10,50 @@
 #define TEST 0
 
 // function prototypes
-void print_number_vertically(n);
+void print_number_vertically(long n);
 
 int
 main(void)
 {
     int status = 1;
-    double n;
+    long n;
 
     printf("Enter an integer up to 10 digits long > ");
-    scanf("%lf", &n);
+    scanf("%ld", &n);
 
     while (status == 1)
     {
-        if (n <= 9999999999)
+        if (0 < n && n <= 9999999999)
         {
-            printf("n = %.0f\n", n);
+            printf("n = %ld\n", n);
             status = 0;
         }
         else
         {
-            printf("n is too large! Try again.\n");
+            printf("Invalid n! Try again.\n");
             printf("Enter an integer up to 10 digits long > ");
-            scanf("%lf", &n);
+            scanf("%ld", &n);
         }
     }
+    print_number_vertically(n);
 
     return 0;
+}
+
+
+void
+print_number_vertically(long n)
+{
+    long temp, i;
+
+    for (   i = 10;
+            n > i;
+            i *= 10)
+    {
+        temp = n % i;
+        n -= temp;
+        printf("%ld\n", temp);
+    }
 }
 
 
