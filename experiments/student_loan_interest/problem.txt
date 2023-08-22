@@ -1,0 +1,17 @@
+PROBLEM
+
+My mother took out student loans for medical school. Her initial balance was $85,000, and she has paid
+$650 a month. Her initial APR was 7.2%, and she recently had $55,000 forgiven. How much money did she pay?
+How much was interest? Take into account leap years and the different lengths of each month.
+
+PERTINENT FORMULAS AND ALGORITHMS
+
+daily_periodic_interest = annual_percentage_rate / 365
+new_amount = principle * (1 + (interest_rate/100))
+
+
+RELATED DATA
+
+Days in months = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+
+
