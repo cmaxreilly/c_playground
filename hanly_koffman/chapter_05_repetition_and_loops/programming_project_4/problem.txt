@@ -8,3 +8,14 @@ rightmost digit, d1, should e listed at the top of the column. Hint: If n is
 digit = n % 10;
 
 Test your program for values of n equal to 6, 3704, and 170,498.
+
+ALGORITHM
+
+int i
+long input_num, temporary_num
+
+while temporary_num < input_num:
+    temporary_num = input_num % 10^i
+    input_num = input_num - temporary_num
+    print temporary_num
+    i++

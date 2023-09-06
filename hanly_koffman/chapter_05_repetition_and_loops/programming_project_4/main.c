@@ -6,6 +6,7 @@
 
 
 #include <stdio.h>
+#include <math.h>
 
 #define TEST 0
 
@@ -25,7 +26,6 @@ main(void)
     {
         if (0 < n && n <= 9999999999)
         {
-            printf("n = %ld\n", n);
             status = 0;
         }
         else
@@ -35,7 +35,9 @@ main(void)
             scanf("%ld", &n);
         }
     }
+    printf("\n");
     print_number_vertically(n);
+    printf("\n");
 
     return 0;
 }
@@ -44,16 +46,19 @@ main(void)
 void
 print_number_vertically(long n)
 {
-    long temp, i;
+    int i = 1;
+    long temp = 0, tens;
 
-    for (   i = 10;
-            n > i;
-            i *= 10)
+    while(temp < n)
     {
-        temp = n % i;
-        n -= temp;
-        printf("%ld\n", temp);
+        tens = pow(10, i);
+        temp = n % tens;
+        printf("%ld\n", temp/(tens / 10));
+        n = n - temp;
+        i++;
     }
+
+
 }
 
 
