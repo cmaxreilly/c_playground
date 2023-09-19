@@ -63,8 +63,6 @@ process_line(double min_p_e)
            l_gas_per_week,
            passenger_efficiency,
            weekly_subsidy;
-    if (TEST)
-        printf("Hello from the function proces_line()\n");
 
     inp = fopen("carpool.dat", "r");
     do
@@ -72,8 +70,6 @@ process_line(double min_p_e)
     fscanf(inp, "%d", &num_passengers);
     fscanf(inp, "%lf", &distance_traveled);
     fscanf(inp, "%lf", &l_gas_per_week);
-    if (TEST)
-        printf("Num passengers = %d, distance travelled = %f, l gas = %f.\n", num_passengers, distance_traveled, l_gas_per_week);
     passenger_efficiency = calc_passenger_efficiency(num_passengers, distance_traveled, l_gas_per_week);
     if (passenger_efficiency <= min_p_e)
     {
