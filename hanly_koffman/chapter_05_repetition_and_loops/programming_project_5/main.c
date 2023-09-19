@@ -1,7 +1,7 @@
 /*
  * Author: C. Maxwell Reilly
  * Started: Thursday, September 7
- * Finished: Monday, September 18
+ * Finished: Tuesday, September 19
  */
 
 
@@ -25,14 +25,32 @@ void
 process_data(void)
 {
     FILE *inp;
-    int temp;
+    int temp, hot = 0, moderate = 0, cold = 0;
     inp = fopen("temperatures.dat", "r");
     fscanf(inp, "%d", &temp);
     while (temp != 1000)
     {
-        printf("%d\n", temp);
+        printf("%d", temp);
+	if (temp >= 85)
+	{
+		printf(" : hot\n");
+		hot++;
+	} else if (temp < 85 && temp >= 60)
+	{
+		printf(" : moderate\n");
+		moderate++;
+	} else
+	{
+		printf(" : cold\n");
+		cold++;
+	}
         fscanf(inp, "%d", &temp);
     }
+    printf("Number of cold days = %d\n", cold);
+    printf("Number of moderate days = %d\n", moderate);
+    printf("Number of hot days = %d\n", hot);
 
 }
+
+
 
