@@ -39,3 +39,7 @@ September 21, 2023
 
 	Update: I have gotten a small event loop to work. I now have to start in on getting ready for 35MM
 	at the college, so I will probably be done for the day...
+
+	Last update: Just finished the program! I have tried every run of it and edited the print formatting,
+	and it seems that the program is running perfectly as expected! I am very much enjoying my linux machine,
+	so I think I will keep doing this type of work on it as time goes forward.
