@@ -1,0 +1,41 @@
+PROBLEM
+
+Write a program to process weekly employee time cards for all employees of
+an organization. Each employee will have three data items: an identification
+number, the hourly wage rate, and the number of hours worked during a 
+given week. Each employee is to be paid time and a half for all hours worked
+over 40. A tax amount of 3.625 percent of gross salary will be deducted. The
+program output should show the employee's number and net pay. Display the
+total payroll and the average amount paid at the end of the run.
+
+Algorithm
+
+print( Welcome! this program processes time cards for employees of C. Maxwell Reilly music studio. )
+print( In order to start entering an employee time card, press "t" on your keyboard. )
+print( Once you have entered all of your data, press x )
+
+While (input != x)
+	print (Enter the option you would like at the prompt >> )
+	if input == x :
+		input = x
+	else if input == t:
+		print("enter employee id number")
+		scan id number
+		print("enter hourly wage")
+		scan hourly wage
+		print("enter number of hours")
+		scan number of hours
+		print (Enter the option you would like at the prompt >> )
+		if input == x
+
+
+Reflections
+
+September 21, 2023
+	This is a difficult problem! I am not quite sure how event loops work in C. I am going to try to 
+	finish a working algorithm for this particular project, but I may have to revise it heavily in 
+	order for it to work at all. Perhaps I need to start by making a simply event loop and seeing if
+	I can get that to work...
+
+	Update: I have gotten a small event loop to work. I now have to start in on getting ready for 35MM
+	at the college, so I will probably be done for the day...
