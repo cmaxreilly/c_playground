@@ -1,0 +1,16 @@
+PROBLEM
+
+Suppose you own a beer distributuorhip that sells Piels (ID number 1), Coors
+(ID number 2), Bud (ID number 3), and Iron City (ID number 4) by the case.
+Write a program to:
+
+a. Get the case inventory for each brand for the start of the week.
+b. Process all weekly sales and purchase records for each bran.
+c. Display out the final inventory.
+
+Each transaction will consist of two data items. The first item will be the brand 
+ID number (an integer). The second will be the amount purchased (a positive 
+integer value) or the amount sold (a negative integer value). For now you may
+assume that you always have sufficient foresight to prevent depletion of your
+inventory for any brand. (Hint: your data entry should begin with four values
+representing case inventory, followed by the transaction values.)

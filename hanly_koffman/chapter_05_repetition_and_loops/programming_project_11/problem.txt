@@ -1,0 +1,9 @@
+PROBLEM
+
+Before high-resolution graphics displays became common, computer ter-
+minals were often used to display graphs of equations using only text char-
+achters. A typical technique was to creat a vertical graph by spacing over on
+the screen, then displaying an *. Write a program that displays the graph of
+an increasing frequency sine wave this way. The program should ask the 
+usier for an initial step-size in degrees and the number of lines of the graph
+to display. A saimple output begins as follows: (insert sine wave here, lol.)
