@@ -1,0 +1,5 @@
+Write a program for an automatic teller machine that dispenses money. The
+user should enter the amount desired (a multiple of 10 dollars) and
+the machine dispenses this amount using the least number of bills. The bills
+dispensed are 50s, 20s, and 10s. Write a function that determines how many
+of each kind of bill to dispense.

@@ -11,7 +11,7 @@ void test_tree(void);
 int
 main(void)
 {
-    test_stack();
+
     return 0;
 }
 

@@ -1,9 +1,11 @@
-CC=gcc
-DEPS = stack.h precedence.h
-OBJ = main.o
+calc: main.o precedence.o stack.o
+	gcc -o calc main.o stack.o precedence.o
 
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< 
+main.o: main.c precedence.h stack.h
+	gcc -c main.c
 
-calc: $(OBJ)
-	$(CC) -o $@ $^ 
+stack.o: stack.c stack.h
+	gcc -c stack.c
+
+precedence.o: precedence.c precedence.h
+	gcc -c precedence.c
