@@ -10,8 +10,9 @@
 void instructions(void);
 void get_user_input(double *amount_paid, double *amount_due);
 double get_change(double amount_paid, double amount_due);
+/* Splits the cents from the dollars */
 void split_change(double change, int *dollarsp, int *centsp);
-void figure_paper_money(int dollars, int *twenties, int *tens, int *fives, int *ones);
+void dollars_change(int dollars, int *twenties, int *tens, int *fives, int *ones);
 void report_paper_money(int twenties, int tens, int fives, int ones);
 void report_coinage(int pennies, int nickles, int dimes, int quarters);
 
@@ -25,7 +26,7 @@ main(void)
     change = get_change(amount_paid, amount_due);
     /* printf("\nTotal change = $%.2f\n", change); */
     split_change(change, &dollars, &cents);
-    figure_paper_money(dollars, &twenties, &tens, &fives, &ones);
+    dollars_change(dollars, &twenties, &tens, &fives, &ones);
     report_paper_money(twenties, tens, fives, ones);
     report_coinage(pennies, nickles, dimes, quarters);
     printf("\nTotal change = %d dollars and %d cents.\n", dollars, cents);
@@ -66,7 +67,7 @@ split_change(double change, int *dollarsp, int *centsp)
 }
 
 void
-figure_paper_money(int dollars, int *twenties, int *tens, int *fives, int *ones)
+dollars_change(int dollars, int *twenties, int *tens, int *fives, int *ones)
 {
     *twenties = *tens = *fives = *ones;
     int amount_remaining = dollars;
