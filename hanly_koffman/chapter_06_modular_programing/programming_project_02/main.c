@@ -76,7 +76,7 @@ split_change(double change, int *dollarsp, int *centsp)
      * in this function */
     /* It appears that the off by one error is only present when cents != 0 */
     *dollarsp = floor(change);
-    *centsp = floor((change - *dollarsp) * 100);
+    *centsp = (int)((change - *dollarsp) * 100);
     /* bug fixed with this if statement. Still don't know why...*/
     /* Update: It appears this bug returns when the price is below 10.00. Weird... */
     /* I am going to write the report_coinage() function and get back to this.*/

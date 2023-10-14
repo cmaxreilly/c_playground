@@ -2,3 +2,13 @@ Write a program to dispense change. The user enters the amount paid and the
 amount due. The program determines how many dollars, quarters, dimes,
 nickels, and pennies should be given as change. Write a function with four
 output parameters that determines the quantity of each kind of coin.
+
+Sat, Oct 14
+It appears that I am having some trouble with typing in my split_change()
+function. My conversion of cents from a double value to int is giving me hell.
+I should ask Chat-GPT what I need to know to understand that.
+
+Update: it looks like what I need to do is create a function that rounds off my
+doubles properly. It sounds like Chat GPT has a good way to do that, but I don't
+want to think about it anymore, so I am going to save my progress and try again
+tomorrow.
