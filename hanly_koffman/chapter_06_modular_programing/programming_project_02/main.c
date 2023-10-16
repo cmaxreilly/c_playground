@@ -11,6 +11,7 @@ void instructions(void);
 void get_user_input(double *amount_paid, double *amount_due);
 double get_change(double amount_paid, double amount_due);
 /* Splits the cents from the dollars */
+double round_double(double number, int decimal_places);
 void split_change(double change, int *dollarsp, int *centsp);
 void dollars_change(int dollars, int *twenties, int *tens, int *fives, int *ones);
 void coins_change(int cents, int *penniesp, int *nicklesp, int *dimesp, int *quartersp);
@@ -34,6 +35,9 @@ main(void)
     get_user_input(&amount_paid, &amount_due);
     change = get_change(amount_paid, amount_due);
     /* printf("\nTotal change = $%.2f\n", change); */
+    /* Testing round_double() function */
+    /*double test_n = 3.14159625;
+    printf("\nOriginal number = %lf.\nRounded number = %lf.\n", test_n, round_double(test_n, 2)); */
     split_change(change, &dollars, &cents);
     printf("\nChange = %d Dollars and %d cents\n", dollars, cents);
     dollars_change(dollars, &twenties, &tens, &fives, &ones);
@@ -69,6 +73,13 @@ get_change(double amount_paid, double amount_due)
     return amount_paid - amount_due;
 }
 
+double
+round_double(double number, int decimal_places)
+{
+    double rounded_number;
+    rounded_number = round(number * pow(10, decimal_places))/ pow(10, decimal_places);
+    return rounded_number;
+}
 void
 split_change(double change, int *dollarsp, int *centsp)
 {
@@ -76,14 +87,14 @@ split_change(double change, int *dollarsp, int *centsp)
      * in this function */
     /* It appears that the off by one error is only present when cents != 0 */
     *dollarsp = floor(change);
-    *centsp = (int)((change - *dollarsp) * 100);
+    *centsp = (int)((round_double(change, 2) - *dollarsp) * 100);
     /* bug fixed with this if statement. Still don't know why...*/
     /* Update: It appears this bug returns when the price is below 10.00. Weird... */
     /* I am going to write the report_coinage() function and get back to this.*/
-    if (*centsp > 0)
+    /* if (*centsp > 0)
     {
         *centsp += 1;
-    }
+    } */
 }
 
 void
