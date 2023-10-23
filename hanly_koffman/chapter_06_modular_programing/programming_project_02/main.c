@@ -1,7 +1,7 @@
 /*
  * Author: C. Maxwell Reilly
  * Started: Saturday, October 7th, 2023
- * Finished: 
+ * Finished: Monday, October 23, 2023
  */
 
 #include <stdio.h>
@@ -41,9 +41,9 @@ main(void)
     split_change(change, &dollars, &cents);
     printf("\nChange = %d Dollars and %d cents\n", dollars, cents);
     dollars_change(dollars, &twenties, &tens, &fives, &ones);
+    coins_change(cents, &pennies, &nickles, &dimes, &quarters);
     report_paper_money(twenties, tens, fives, ones);
     report_coinage(pennies, nickles, dimes, quarters);
-    printf("\nTotal change = %d dollars and %d cents.\n", dollars, cents);
     return 0;
 }
 
@@ -114,13 +114,13 @@ dollars_change(int dollars, int *twenties, int *tens, int *fives, int *ones)
 void
 coins_change(int cents, int *penniesp, int *nicklesp, int *dimesp, int *quartersp)
 {
-    *penniesp = *nicklesp = *dimesp = *quartersp = 0;
+    /* *penniesp = *nicklesp = *dimesp = *quartersp = 0; */
     int amount_remaining = cents;
-    *quartersp = (amount_remaining -(amount_remaining % 25))/25;
+    *quartersp = (amount_remaining - (amount_remaining % 25))/25;
     amount_remaining -= *quartersp * 25;
-    *dimesp = (amount_remaining -(amount_remaining % 10))/10;
+    *dimesp = (amount_remaining - (amount_remaining % 10))/10;
     amount_remaining -= *dimesp * 10;
-    *nicklesp = (amount_remaining -(amount_remaining % 5))/5;
+    *nicklesp = (amount_remaining - (amount_remaining % 5))/5;
     amount_remaining -= *nicklesp * 5;
     *penniesp = amount_remaining;
 }
@@ -137,7 +137,7 @@ report_paper_money(int twenties, int tens, int fives, int ones)
 void
 report_coinage(int pennies, int nickles, int dimes, int quarters)
 {
-    printf("Quarters = %d (¢%d)\n", quarters, quarters*20);
+    printf("Quarters = %d (¢%d)\n", quarters, quarters*25);
     printf("Dimes = %d (¢%d)\n", dimes, dimes*10);
     printf("Nickles = %d (¢%d)\n", nickles, nickles*5);
     printf("Pennies = %d (¢%d)\n", pennies, pennies);
