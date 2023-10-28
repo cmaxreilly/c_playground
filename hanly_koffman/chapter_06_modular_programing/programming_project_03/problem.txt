@@ -1,0 +1,57 @@
+Determine the following information about each value in a list of positive
+integers.
+
+a. Is the value a multiple of 7, 11, or 13?
+b. Is the sum of the digits odd or even?
+c. Is the value a prime number?
+
+You should write a function with three type int output parameters that send back
+the answers to these three questions. Some sample input data might be:
+
+104   3773   13   121   77   30751
+
+Sat Oct 28
+
+This one is fairly complicated, so I believe that the function they have asked
+for will actually just be a driver function for several other functions.
+
+Pseudocode:
+
+main
+{
+    numbers = [ all the numbers I want to check ]
+    int multiple_7, multiple_11, multiple_13, sum_is_odd_or_even, is_prime_number
+
+}
+
+driver_function(number *is_multiplep *sum_is_odd_or_evenp *is_prime_numberp)
+{
+    *is_mutiplep = is_multiplef(number, &multiple_7, &multiple_11, &multiple_13)
+    *sum_is_odd_or_evenp = sum_is_odd_or_evenf(number)
+    *is_prime_numberp = is_prime_numberf(number)
+}
+
+report(number, multiple_7, multiple_11, multiple_13, sum_is_odd_or_even, is_prime_number)
+{
+    printf("%d", number)
+    if multiple_7 = 1
+        printf(" is a multiple of 7, ")
+    else
+        printf(" is not a multiple of 7, ")
+    if multiple_11 = 1
+        printf(" is a multiple of 11, ")
+    else
+        printf(" is not a multiple of 11, ")
+    if multiple_13 = 1
+        printf(" is a multiple of 13, ")
+    else
+        printf(" is not a multiple of 13, ")
+    if sum_is_odd_or_even = 1
+        printf(" has digits that sum to an even number,")
+    else
+        printf(" has digits that sum to an odd number,")
+    if is_prime_number = 1
+        printf(" and is a prime number. \n");
+    else
+        printf(" and is not a prime number. \n");
+}
