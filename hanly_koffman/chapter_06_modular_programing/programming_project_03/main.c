@@ -67,7 +67,6 @@ int
 sum_is_odd_or_even(int number, int *sum_is_odd_or_evenp)
 {
     return 0;
-
 }
 
 int
