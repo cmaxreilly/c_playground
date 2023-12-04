@@ -1,11 +1,12 @@
 /*
  * Author: C. Maxwell Reilly
- * Started: Saturday, October 28, 2023
+ * Started: Dec 4, 2023
  * Finished:
  */
 
 #include <stdio.h>
 #include <math.h>
+#include "functions.h"
 
 /* Function prototypes */
 
@@ -18,6 +19,7 @@ int sum_of_digits(int number, int sum);
 int
 main(void)
 {
+    hello();
     /* Variables */
     int numbers[6] = { 104, 3773, 13, 121, 77, 30751 };
     int multiple_7, multiple_11, multiple_13, sum_is_odd_or_even, is_prime_number;

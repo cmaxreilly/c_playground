@@ -26,4 +26,4 @@ $(BINDIR)/%.o: $(SRCDIR)/%.c $(INCDIR)/%.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-rm -f $(BINDIR)/*.o $(TARGET)
+	rm -f $(BINDIR)/*.o $(TARGET)

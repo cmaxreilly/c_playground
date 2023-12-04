@@ -79,3 +79,21 @@ report(number, multiple_7, multiple_11, multiple_13, sum_is_odd_or_even, is_prim
     else
         printf(" and is not a prime number. \n");
 }
+
+Dec 4
+After abandoning this project, I have returned to it. I would like to use it as a way to
+restructure my C development process. I am going to start making use of header files and a
+new directory structure, namely a 'bin', 'src', 'docs', and 'tests' directory. I am going
+to use the tests directory to test my functions so that I am not just constantly rewriting
+the main function in main.c all of the time, and I am going to put all of my functions in
+to a header file in src, and then I am going to get my makefile to reflect all of this.
+First I am simply going to use the system that I have currently devised for my makefiles,
+and once I get that to work, I will devise a more portable system that makes better use of
+data structures. Once I have worked out the kinks, I hope to apply the lessons I learned
+here to my calculator and get a good workflow going.
+
+Update, it turns out that the makefile does not need to know about the header file in
+order to compile the program because the new header file is the compiler's job. Very
+interesting. So I only need to tell my makefile about my header file so that it will
+compile my C file after I rewrite the header. Good thing to know! I have come away from
+this little session with some interesting information. I will copy this into my notes.
