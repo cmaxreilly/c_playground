@@ -14,13 +14,15 @@ driver_function(int number, int* multiple_7p, int* multiple_11p, int* multiple_1
     *multiple_7p = divisible(number, 7);
     *multiple_11p = divisible(number, 11);
     *multiple_13p = divisible(number, 13);
+    *sum_is_odd_or_evenp = sum_is_odd_or_even(number, sum_is_odd_or_evenp);
     /*
-    *sum_is_odd_or_evenp = sum_is_odd_or_evenf(number);
     *is_prime_numberp = is_prime_numberf(number);
     */
     ;
 }
 
+/* Returns a 1 if the number is divisible by the divisor, and a 0 if not. */
+/* Weird logic, actually. I should change this to 0 for success, 1 for failure */
 int
 divisible(int number, int divisor)
 {
@@ -81,7 +83,7 @@ report(int number, int multiple_7, int multiple_11, int multiple_13, int sum_is_
     } else {
         printf(" is not a multiple of 13, ");
     }
-    if (sum_is_odd_or_even == 1) {
+    if (sum_is_odd_or_even == 0) {
         printf(" has digits that sum to an even number,");
     } else {
         printf(" has digits that sum to an odd number,");
