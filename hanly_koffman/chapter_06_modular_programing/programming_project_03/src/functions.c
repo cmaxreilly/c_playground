@@ -32,9 +32,32 @@ divisible(int number, int divisor)
     }
 }
 
+
+int
+sum_of_digits(int number)
+{
+    int num, sum, temp;
+    num = number;
+    while ( num > 0 )
+    {
+        temp = num % 10;
+        sum += temp;
+        num -= temp;
+        num = num / 10;
+    }
+    return sum;
+}
+
 int
 sum_is_odd_or_even(int number, int *sum_is_odd_or_evenp)
 {
+    if (sum_of_digits(number) % 2 == 0)
+    {
+        *sum_is_odd_or_evenp = 0;
+    } else
+    {
+        *sum_is_odd_or_evenp = 1;
+    }
     return 0;
 }
 
@@ -68,18 +91,4 @@ report(int number, int multiple_7, int multiple_11, int multiple_13, int sum_is_
     } else {
         printf(" and is not a prime number. \n");
     }
-}
-
-int
-sum_of_digits(int number, int sum)
-{
-    int digit;
-    digit = number - (number % 10);
-    printf("digit = %d\n", digit);
-    sum += digit;
-    if (number > 10) {
-        number = (number - digit) % 10;
-        sum_of_digits(number, sum);
-    }
-    return sum;
 }

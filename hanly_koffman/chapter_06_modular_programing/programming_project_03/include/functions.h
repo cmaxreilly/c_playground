@@ -6,6 +6,6 @@ void driver_function(int number, int* multiple_7p, int* multiple_11p, int* multi
 int divisible(int number, int divisor);
 void report(int number, int multiple_7, int multiple_11, int multiple_13, int sum_is_odd_or_even, int is_prime_number);
 int sum_is_odd_or_even(int number, int *sum_is_odd_or_evenp);
-int sum_of_digits(int number, int sum);
+int sum_of_digits(int number);
 
 #endif
