@@ -32,5 +32,14 @@ main(void)
     sum_is_odd_or_even(test_digit, &sum_is_odd_or_even_num);
     /* if (( */
 
+    /* is_prime() test */
+    if (is_prime(7) == 0)
+    {
+        printf("is_prime() working properly.\n");
+    } else
+    {
+        printf("***ERROR***: is_prime() broken\n");
+    }
+
     return(0);
 }

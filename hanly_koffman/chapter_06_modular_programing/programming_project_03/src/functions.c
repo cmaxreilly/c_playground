@@ -63,6 +63,23 @@ sum_is_odd_or_even(int number, int *sum_is_odd_or_evenp)
 }
 
 
+int
+is_prime(int number)
+{
+    int i;
+    for (   i = 1;
+            i < number / 2;
+            i ++)
+        if (number % i == 0)
+        {
+           ;
+        } else
+        {
+            return 0;
+        }
+    return 1;
+}
+
 void
 report(int number, int multiple_7, int multiple_11, int multiple_13, int sum_is_odd_or_even, int is_prime_number)
 {
@@ -93,3 +110,5 @@ report(int number, int multiple_7, int multiple_11, int multiple_13, int sum_is_
         printf(" and is not a prime number. \n");
     }
 }
+
+
