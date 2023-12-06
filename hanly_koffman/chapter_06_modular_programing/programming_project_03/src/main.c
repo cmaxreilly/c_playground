@@ -8,9 +8,6 @@
 #include <math.h>
 #include "include/functions.h"
 
-/* Function prototypes */
-
-
 int
 main(void)
 {
@@ -26,9 +23,6 @@ main(void)
             i < 6;
             i++)
     {
-        /*
-        printf("%d\n", numbers[i]);
-        */
         driver_function(numbers[i], &multiple_7, &multiple_11, &multiple_13, &sum_is_odd_or_even, &is_prime_number);
         report(numbers[i], multiple_7, multiple_11, multiple_13, sum_is_odd_or_even, is_prime_number);
         printf("\n\n");

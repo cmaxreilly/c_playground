@@ -5,7 +5,6 @@ void
 hello(void)
 {
     printf("Hello, world!\n\n");
-    printf("u fukin little shit\n\n");
 }
 
 void
@@ -28,9 +27,9 @@ divisible(int number, int divisor)
 {
     if (number % divisor == 0)
     {
-        return 1;
-    } else {
         return 0;
+    } else {
+        return 1;
     }
 }
 
@@ -38,7 +37,7 @@ divisible(int number, int divisor)
 int
 sum_of_digits(int number)
 {
-    int num, sum, temp;
+    int num = number, sum = 0, temp;
     num = number;
     while ( num > 0 )
     {

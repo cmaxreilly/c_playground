@@ -15,6 +15,12 @@ Sat Oct 28
 This one is fairly complicated, so I believe that the function they have asked
 for will actually just be a driver function for several other functions.
 
+ToDo
+√ Rewrite divisible function
+√ Test Divisible Function
+º Test Sum of Digits function
+
+
 Pseudocode:
 
 main
