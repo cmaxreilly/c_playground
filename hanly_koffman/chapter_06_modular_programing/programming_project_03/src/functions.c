@@ -14,22 +14,18 @@ driver_function(int number, int* multiple_7p, int* multiple_11p, int* multiple_1
     *multiple_11p = divisible(number, 11);
     *multiple_13p = divisible(number, 13);
     *sum_is_odd_or_evenp = sum_is_odd_or_even(number, sum_is_odd_or_evenp);
-    /*
-    *is_prime_numberp = is_prime_numberf(number);
-    */
-    ;
+    *is_prime_numberp = is_prime(number);
 }
 
 /* Returns a 1 if the number is divisible by the divisor, and a 0 if not. */
-/* Weird logic, actually. I should change this to 0 for success, 1 for failure */
 int
 divisible(int number, int divisor)
 {
     if (number % divisor == 0)
     {
-        return 0;
-    } else {
         return 1;
+    } else {
+        return 0;
     }
 }
 
@@ -49,6 +45,9 @@ sum_of_digits(int number)
     return sum;
 }
 
+/* This is a super confusing implementation. I should have just made it sum_is_even() and had it return a bolean value. But here we are. */
+/* In the meantime, 0 = even, 1 = odd. */
+/* I also should have fuckin just had this return a value instead of passing a pointer around for one return value */
 int
 sum_is_odd_or_even(int number, int *sum_is_odd_or_evenp)
 {

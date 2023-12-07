@@ -6,7 +6,7 @@ int
 main(void)
 {
     /* divisible() test */
-    if (divisible(6, 2) == 0)
+    if (divisible(6, 2) == 1)
     {
         printf("\ndivisible() working properly.\n");
     } else
@@ -39,7 +39,26 @@ main(void)
     } else
     {
         printf("***ERROR***: is_prime() broken\n");
+        return 1;
     }
 
-    return(0);
+    /* driver function test */
+    int num = 7, multiple_7, multiple_11, multiple_13, is_prime_number;
+    driver_function(num, &multiple_7, &multiple_11, &multiple_13, &sum_is_odd_or_even_num, &is_prime_number);
+    if (multiple_7 == 1 && multiple_11 == 0 && multiple_13 == 0 && sum_is_odd_or_even_num == 1 && is_prime_number == 0)
+    {
+        printf("driver_function() working properly.\n");
+    } else
+    {
+        printf("***ERROR***: driver_function() broken\n");
+        printf("multiple_7 = %d\n", multiple_7);
+        printf("multiple_11 = %d\n", multiple_11);
+        printf("multiple_13 = %d\n", multiple_13);
+        printf("sum_is_odd_or_even_num = %d\n", sum_is_odd_or_even_num);
+        printf("is_prime_number = %d\n", is_prime_number);
+        return 1;
+    }
+
+
+    return 0;
 }
