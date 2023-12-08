@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "include/functions.h"
+#include <math.h>
+#include "functions.h"
 
 void
 hello(void)
@@ -13,7 +14,7 @@ driver_function(int number, int* multiple_7p, int* multiple_11p, int* multiple_1
     *multiple_7p = divisible(number, 7);
     *multiple_11p = divisible(number, 11);
     *multiple_13p = divisible(number, 13);
-    *sum_is_odd_or_evenp = sum_is_odd_or_even(number, sum_is_odd_or_evenp);
+    *sum_is_odd_or_evenp = sum_is_even(number);
     *is_prime_numberp = is_prime(number);
 }
 
@@ -29,7 +30,7 @@ divisible(int number, int divisor)
     }
 }
 
-
+/* Takes an integer, returns the sum of it's digits (ex: 1111 = 4) */
 int
 sum_of_digits(int number)
 {
@@ -45,69 +46,77 @@ sum_of_digits(int number)
     return sum;
 }
 
-/* This is a super confusing implementation. I should have just made it sum_is_even() and had it return a bolean value. But here we are. */
-/* In the meantime, 0 = even, 1 = odd. */
-/* I also should have fuckin just had this return a value instead of passing a pointer around for one return value */
+/* Takes a number, returns 1 if it is even and 0 if it is odd */
 int
-sum_is_odd_or_even(int number, int *sum_is_odd_or_evenp)
+sum_is_even(int number)
 {
     if (sum_of_digits(number) % 2 == 0)
     {
-        *sum_is_odd_or_evenp = 0;
+        return 1;
     } else
     {
-        *sum_is_odd_or_evenp = 1;
+        return 0;
     }
-    return 0;
 }
-
 
 int
 is_prime(int number)
 {
-    int i;
-    for (   i = 1;
-            i < number / 2;
-            i ++)
+    if (number < 2)
+    {
+        return 0; // Numbers below 2 are not prime
+    }
+    for (   int i = 2;
+            i < sqrt(number);
+            i++)
+    {
         if (number % i == 0)
         {
-           ;
-        } else
-        {
-            return 0;
+           return 0;
         }
+    }
     return 1;
+}
+
+void
+print_header(void)
+{
+    printf(" Number | multiple 7 | multiple 11 | Multiple 13 | Sum of Digits Odd or Even | Is Prime number |\n");
+}
+
+void
+print_separator(void)
+{
+    printf("--------|------------|-------------|-------------|---------------------------|-----------------|\n");
 }
 
 void
 report(int number, int multiple_7, int multiple_11, int multiple_13, int sum_is_odd_or_even, int is_prime_number)
 {
-    printf("%d", number);
+    printf("%8d|", number);
     if (multiple_7 == 1) {
-        printf(" is a multiple of 7, ");
+        printf("    yes     |");
     } else {
-        printf(" is not a multiple of 7, ");
+        printf("     no     |");
     }
     if (multiple_11 == 1) {
-        printf(" is a multiple of 11, ");
+        printf("     yes     |");
     } else {
-        printf(" is not a multiple of 11, ");
+        printf("      no     |");
     }
     if (multiple_13 == 1) {
-        printf(" is a multiple of 13, ");
+        printf("     yes     |");
     } else {
-        printf(" is not a multiple of 13, ");
+        printf("      no     |");
     }
-    if (sum_is_odd_or_even == 0) {
-        printf(" has digits that sum to an even number,");
+    if (sum_is_odd_or_even == 1) {
+        printf("         even              |");
     } else {
-        printf(" has digits that sum to an odd number,");
+        printf("          odd              |");
     }
-    if (is_prime_number == 1) {
-        printf(" and is a prime number. \n");
+    if (is_prime_number) {
+        printf("      yes        |");
     } else {
-        printf(" and is not a prime number. \n");
+        printf("       no        |");
     }
 }
-
-

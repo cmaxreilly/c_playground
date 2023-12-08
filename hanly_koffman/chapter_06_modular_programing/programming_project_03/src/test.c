@@ -27,25 +27,34 @@ main(void)
         return 1;
     }
 
-    /* sum_is_odd_or_even() test */
+    /* sum_is_even() test */
     int sum_is_odd_or_even_num;
-    sum_is_odd_or_even(test_digit, &sum_is_odd_or_even_num);
-    /* if (( */
+    sum_is_even(test_digit);
+    if (sum_is_even(test_digit) == 1)
+    {
+        printf("sum_is_even() working properly.\n");
+    } else
+    {
+        printf("***ERROR***: sum_is_even() is broken.\n");
+        printf("sum_is_even(test_digit) = %d\n", sum_is_even(test_digit));
+    }
 
     /* is_prime() test */
-    if (is_prime(7) == 0)
+    if (is_prime(7) == 1 && is_prime(4) == 0)
     {
         printf("is_prime() working properly.\n");
     } else
     {
         printf("***ERROR***: is_prime() broken\n");
+        printf("is_prime(7) = %d\n", is_prime(7));
+        printf("is_prime(4) = %d\n", is_prime(4));
         return 1;
     }
 
     /* driver function test */
     int num = 7, multiple_7, multiple_11, multiple_13, is_prime_number;
     driver_function(num, &multiple_7, &multiple_11, &multiple_13, &sum_is_odd_or_even_num, &is_prime_number);
-    if (multiple_7 == 1 && multiple_11 == 0 && multiple_13 == 0 && sum_is_odd_or_even_num == 1 && is_prime_number == 0)
+    if (multiple_7 == 1 && multiple_11 == 0 && multiple_13 == 0 && sum_is_odd_or_even_num == 0 && is_prime_number == 1)
     {
         printf("driver_function() working properly.\n");
     } else
