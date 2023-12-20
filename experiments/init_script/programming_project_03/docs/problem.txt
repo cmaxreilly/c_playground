@@ -1,0 +1,125 @@
+Determine the following information about each value in a list of positive
+integers.
+
+a. Is the value a multiple of 7, 11, or 13?
+b. Is the sum of the digits odd or even?
+c. Is the value a prime number?
+
+You should write a function with three type int output parameters that send back
+the answers to these three questions. Some sample input data might be:
+
+104   3773   13   121   77   30751
+
+Sat Oct 28
+
+This one is fairly complicated, so I believe that the function they have asked
+for will actually just be a driver function for several other functions.
+
+ToDo
+√ Rewrite divisible function
+√ Test Divisible Function
+º Test Sum of Digits function
+
+
+Pseudocode:
+
+main
+{
+    numbers = [ all the numbers I want to check ]
+    int multiple_7, multiple_11, multiple_13, sum_is_odd_or_even, is_prime_number
+
+}
+
+driver_function(number *is_multiplep *sum_is_odd_or_evenp *is_prime_numberp)
+{
+    *is_mutiplep = is_multiplef(number, &multiple_7, &multiple_11, &multiple_13)
+    *sum_is_odd_or_evenp = sum_is_odd_or_evenf(number)
+    *is_prime_numberp = is_prime_numberf(number)
+}
+
+report(number, multiple_7, multiple_11, multiple_13, sum_is_odd_or_even, is_prime_number)
+{
+    printf("%d", number)
+    if multiple_7 = 1
+        printf(" is a multiple of 7, ")
+    else
+        printf(" is not a multiple of 7, ")
+    if multiple_11 = 1
+        printf(" is a multiple of 11, ")
+    else
+        printf(" is not a multiple of 11, ")
+    if multiple_13 = 1
+        printf(" is a multiple of 13, ")
+    else
+        printf(" is not a multiple of 13, ")
+    if sum_is_odd_or_even = 1
+        printf(" has digits that sum to an even number,")
+    else
+        printf(" has digits that sum to an odd number,")
+    if is_prime_number = 1
+        printf(" and is a prime number. \n");
+    else
+        printf(" and is not a prime number. \n");
+}
+report(number, multiple_7, multiple_11, multiple_13, sum_is_odd_or_even, is_prime_number)
+{
+    printf("%d", number)
+    if multiple_7 = 1
+        printf(" is a multiple of 7, ")
+    else
+        printf(" is not a multiple of 7, ")
+    if multiple_11 = 1
+        printf(" is a multiple of 11, ")
+    else
+        printf(" is not a multiple of 11, ")
+    if multiple_13 = 1
+        printf(" is a multiple of 13, ")
+    else
+        printf(" is not a multiple of 13, ")
+    if sum_is_odd_or_even = 1
+        printf(" has digits that sum to an even number,")
+    else
+        printf(" has digits that sum to an odd number,")
+    if is_prime_number = 1
+        printf(" and is a prime number. \n");
+    else
+        printf(" and is not a prime number. \n");
+}
+
+Dec 4
+After abandoning this project, I have returned to it. I would like to use it as a way to
+restructure my C development process. I am going to start making use of header files and a
+new directory structure, namely a 'bin', 'src', 'docs', and 'tests' directory. I am going
+to use the tests directory to test my functions so that I am not just constantly rewriting
+the main function in main.c all of the time, and I am going to put all of my functions in
+to a header file in src, and then I am going to get my makefile to reflect all of this.
+First I am simply going to use the system that I have currently devised for my makefiles,
+and once I get that to work, I will devise a more portable system that makes better use of
+data structures. Once I have worked out the kinks, I hope to apply the lessons I learned
+here to my calculator and get a good workflow going.
+
+Update, it turns out that the makefile does not need to know about the header file in
+order to compile the program because the new header file is the compiler's job. Very
+interesting. So I only need to tell my makefile about my header file so that it will
+compile my C file after I rewrite the header. Good thing to know! I have come away from
+this little session with some interesting information. I will copy this into my notes.
+
+Dec 5 
+
+Algorithm for finding the sum of all digits
+
+num
+sum
+temp
+
+while num > 0
+    temp = num % 10
+    num += temp
+    num -= temp
+    num = num / 10
+
+Update: this algorithm worked great! Compiled on a second try and solved the problem
+immediately. If only more of my algorithms worked this well.
+
+Alright, but now when I try to use it with a variable, it fucks up. Wonder what the deal
+is...
