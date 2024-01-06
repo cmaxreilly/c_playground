@@ -3,8 +3,8 @@
  */
 
 #include<stdio.h>
-#include"stack.h"
-#include"precedence.h"
+#include"include/stack.h"
+#include"include/precedence.h"
 void test_stack(void);
 void test_tree(void);
 
@@ -22,6 +22,7 @@ test_stack(void)
     double num_stack[MAX_STACK];
     int num_stack_top = 0;
     push_double(num_stack, 6, &num_stack_top);
+    /*
     push_double(num_stack, 6, &num_stack_top);
     push_double(num_stack, 6, &num_stack_top);
     printf("Double stack: \n");
@@ -35,6 +36,7 @@ test_stack(void)
     push_char(char_stack, 'M', &char_stack_top);
     push_char(char_stack, '!', &char_stack_top);
     print_char_stack(char_stack, char_stack_top);
+    */
 }
 
 /* Driver code to test my priority tree functions */

@@ -1,29 +1,15 @@
-CC = gcc
-CFLAGS = -Iinclude -Wall
+bin/output: $(wildcard src/*.c) $(wildcard include/*.h)
+	gcc -o bin/output $(wildcard src/*.c) -Iinclude -lm
 
-SRCDIR = src
-INCDIR = include
-BINDIR = bin
+run: src/main.c src/functions.c include/functions.h
+	gcc -o bin/output src/main.c src/functions.c -Iinclude -lm; bin/output
 
-# List your source files here (excluding main.c)
+test: src/test.c src/functions.c include/
+	gcc -o test/test src/test.c src/functions.c -Iinclude -lm; test/test
 
-SRC = $(wildcard $(SRCDIR)/*.c)
-
-# Generate a list of object files from source files
-OBJ = $(patsubst $(SRCDIR)/%.c, $(BINDIR)/%.o, $(SRC))
-
-# The final executable
-TARGET = $(BINDIR)/calc
-
-all: $(TARGET)
-
-$(TARGET): $(OBJ) $(SRCDIR)/main.c
-	$(CC) $(CFLAGS) -o $@ $^
-
-# Rule to compile each source file into an object file
-
-$(BINDIR)/%.o: $(SRCDIR)/%.c $(INCDIR)/%.h
-	$(CC) $(CFLAGS) -c $< -o $@
+debug:
+	gcc -g -o bin/output src/main.c src/functions.c -Iinclude -lm
 
 clean:
-	rm -f $(BINDIR)/*.o $(TARGET)
+	rm -r output.dSYM/
+
