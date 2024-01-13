@@ -1,48 +1,56 @@
-/* 
+/*
  * My hack at an infix calculator
  */
 
-#include<stdio.h>
-#include"include/stack.h"
-#include"include/precedence.h"
-void test_stack(void);
-void test_tree(void);
+#include <stdio.h>
+#include <stdlib.h>
+#include "include/stack.h"
+#include "include/precedence.h"
+#include "include/test.h"
+#include "include/char_handling.h"
 
 int
 main(void)
 {
-
-    return 0;
-}
-
-/* Driver code to test my stack functions */
-void
-test_stack(void)
-{
-    double num_stack[MAX_STACK];
-    int num_stack_top = 0;
-    push_double(num_stack, 6, &num_stack_top);
-    /*
-    push_double(num_stack, 6, &num_stack_top);
-    push_double(num_stack, 6, &num_stack_top);
-    printf("Double stack: \n");
-    print_double_stack(num_stack, num_stack_top);
-    char char_stack[MAX_STACK];
+    int type;
+    double op2;
+    char stack[MAXOP];
+    char char_stack[MAXOP];
     int char_stack_top = 0;
-    push_char(char_stack, 'H', &char_stack_top);
-    push_char(char_stack, 'I', &char_stack_top);
-    push_char(char_stack, 'M', &char_stack_top);
-    push_char(char_stack, 'O', &char_stack_top);
-    push_char(char_stack, 'M', &char_stack_top);
-    push_char(char_stack, '!', &char_stack_top);
-    print_char_stack(char_stack, char_stack_top);
-    */
-}
-
-/* Driver code to test my priority tree functions */
-
-void
-test_tree(void)
-{
-    ;
+    double num_stack[MAXOP];
+    printf("Enter problem in reverse polish notation.\n");
+    printf("Enter 'q' to end session\n");
+    while ((type = getop(stack)) != EOF) {
+        switch (type) {
+            case 'q':
+                return 0;
+            case NUMBER:
+                push_char(char_stack, atof(char_stack), &char_stack_top);
+                break;
+            case '+':
+                push_char(char_stack, (pop_char(char_stack, &char_stack_top) + pop_char(char_stack, &char_stack_top)), &char_stack_top);
+                break;
+            case '*':
+                push_char(char_stack, (pop() * pop()), &char_stack_top);
+                break;
+            case '-':
+                op2 = pop();
+                push(pop() - op2);
+                break;
+            case '/':
+                op2 = pop();
+                if (op2 != 0.0)
+                    push(pop() / op2);
+                else
+                    printf("error: zero divisor\n");
+                break;
+            case '\n':
+                printf("\t%.8g\n", pop());
+                break;
+            default:
+                printf("error: unknown command %s\n", stack);
+                break;
+        }
+    }
+    return(0);
 }

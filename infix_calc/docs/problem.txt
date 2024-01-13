@@ -14,12 +14,12 @@ one of the steps (1) through (5):
     corresponding "(" is encounterd in the operator stack. At this stage, POP
         the operator stack and ignore "(".
     4. If we encounter an operator:
-        * If the operator stack is empty, then push the operator onto the operator
+        • If the operator stack is empty, then push the operator onto the operator
         stack
-        * If the operator stack is not empty and the operator's precedence is 
+        • If the operator stack is not empty and the operator's precedence is 
         greater than the precedence of the stack top of the operator stack, then
         push the character onto the operator stack.
-        * If the operator stack is not empty and the character's precedence is
+        • If the operator stack is not empty and the character's precedence is
         lower than the precedence of the stack top of operator stack, then we
         pop the opearator with high precedence, and two valued from the value stack,
         apply the operator to the values and store the result in the value
@@ -32,16 +32,16 @@ one of the steps (1) through (5):
 
 
 Things I need to figure out
-
-
+    º How to sort text from the main input into different stacks.
 
 Things I need to implement
-    * Algorithm implementation in driver code
-    * Compile header files
-    * How to create a precedence tree.
+    º Algorithm implementation in driver code
+    º How to create a precedence tree.
 
 Things I have implemented
-    * A function that pops things from a given stack.
-    * A function that pushes things to a given stack.
-    * A function that shows the top of a given stack.
+    √ A function that pops things from a given stack.
+    √ A function that pushes things to a given stack.
+    √ A function that shows the top of a given stack.
+    √ Compile header files
 
+Notes
