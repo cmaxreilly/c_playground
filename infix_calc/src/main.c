@@ -16,7 +16,7 @@ main(void)
     double op2;
     char stack[MAXOP];
     char char_stack[MAXOP];
-    int char_stack_top = 0;
+    int char_stack_top;
     double num_stack[MAXOP];
     printf("Enter problem in reverse polish notation.\n");
     printf("Enter 'q' to end session\n");
@@ -25,14 +25,21 @@ main(void)
             case 'q':
                 return 0;
             case NUMBER:
-                push_char(char_stack, atof(char_stack), &char_stack_top);
+                push(atof(stack));
                 break;
+                /* push_char(char_stack, atof(char_stack), &char_stack_top);
+                break; */
             case '+':
-                push_char(char_stack, (pop_char(char_stack, &char_stack_top) + pop_char(char_stack, &char_stack_top)), &char_stack_top);
+                push(pop() + pop());
+                break;
+                /* push_char(char_stack, (pop_char(char_stack, &char_stack_top) + pop_char(char_stack,
+                                &char_stack_top)), &char_stack_top);*/
                 break;
             case '*':
-                push_char(char_stack, (pop() * pop()), &char_stack_top);
+                push(pop() * pop());
                 break;
+                /* push_char(char_stack, (pop() * pop()), &char_stack_top);
+                break; */
             case '-':
                 op2 = pop();
                 push(pop() - op2);
