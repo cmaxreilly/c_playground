@@ -25,10 +25,10 @@ main(void)
             case 'q':
                 return 0;
             case NUMBER:
-                push(atof(stack));
-                break;
-                /* push_char(char_stack, atof(char_stack), &char_stack_top);
+                /* push_char(atof(stack));
                 break; */
+                push_char(char_stack, atof(char_stack), &char_stack_top);
+                break;
             case '+':
                 push(pop() + pop());
                 break;
@@ -52,7 +52,7 @@ main(void)
                     printf("error: zero divisor\n");
                 break;
             case '\n':
-                printf("\t%.8g\n", pop());
+                printf("\t%.8g\n", pop_char(char_stack, &char_stack_top));
                 break;
             default:
                 printf("error: unknown command %s\n", stack);

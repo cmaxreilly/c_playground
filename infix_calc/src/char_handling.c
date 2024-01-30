@@ -43,7 +43,6 @@ int
 getop(char s[])
 {
     int i, c;
-
     while((s[0] = c = getch()) == ' ' || c == '\t')
         ;
     s[1] = '\0';
@@ -61,7 +60,6 @@ getop(char s[])
         ungetch(c);
     return NUMBER;
 }
-
 
 /* push: push f onto value stack */
 

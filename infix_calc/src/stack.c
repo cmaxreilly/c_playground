@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "include/stack.h"
+
 /* Stack source code */
 
 void
@@ -62,7 +63,7 @@ print_char_stack(char stack[], int top)
 }
 
 void
-push_char(char stack[], double data, int* top)
+push_char(char stack[], char data, int* top)
 {
     int fun_top;
     fun_top = *top;

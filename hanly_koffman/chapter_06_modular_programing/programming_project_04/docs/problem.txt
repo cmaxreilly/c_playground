@@ -1,0 +1,40 @@
+Develp a collection of functions to solve simple conduction problems using
+various forms of the formula
+
+
+        H = kA(T2 - T1)
+            -----------
+                 X
+where H is the rate of heat transfer in watts, k is the coefficient of thermal
+conductivity for the particular substance, A is the cross-sectional area in m^2
+(square meters), T2 and T1 are the kelvin temperatures on the two sides of the
+conductor, and X is the thickness of the conductor in meters.
+
+Define a function for each variable in the formula. For example, a function
+calc_h would compute the rate of heat transfer, calc_k would figure the
+coefficient of thermal conductivity, calc_a would find the cross-sectional
+area, and so on. Develop a driver function that interacts with the user in the following way:
+
+Respond to the prompts with the data known. For the
+unknown quantity, enter a questoin mark (?).
+
+Rate of heat transfer (watts) >> 755.0
+Coefficient of thermal conductivity (W/m-K) >> 0.8
+Cross-sectional area of conductor (m^2) >> 0.12
+Temperature on one side (K) >> ?
+Thickness of conductor (m) >> 0.003
+
+          kA (T2 - T1)
+    H = ----------------
+                X
+
+Temperature on the other side is 274 K.
+
+H = 755.0 W                 T2 = 298 K
+k = 0.800 W/m-K             T1 = 274 K
+A = 0.120 m^2               X  = 0.0003 m
+
+(Hint: Input of the question mark when looking for a number will cause
+ scanf to return a value of 0. Be sure to check for this, and then scan the
+ question mark into a character variable before proceeding with the remaining
+ prompts.)
