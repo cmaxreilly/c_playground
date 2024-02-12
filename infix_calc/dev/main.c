@@ -1,7 +1,6 @@
 /*
  * My hack at an infix calculator
  */
-#define TEST 1
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,14 +20,6 @@ main(void)
     double num_stack[MAXOP];
     printf("Enter problem in reverse polish notation.\n");
     printf("Enter 'q' to end session\n");
-
-    /* Testing char stack functions */
-    if (TEST == 1)
-    {
-        push_char(char_stack, 'p', &char_stack_top);
-        printf("Test: p = %c\n", pop_char(char_stack, &char_stack_top));
-    }
-
     while ((type = getop(stack)) != EOF) {
         switch (type) {
             case 'q':
@@ -61,10 +52,10 @@ main(void)
                     printf("error: zero divisor\n");
                 break;
             case '\n':
-                printf("\n%c.8g\n", pop_char(char_stack, &char_stack_top));
+                printf("\t%.8g\n", pop_char(char_stack, &char_stack_top));
                 break;
             default:
-                printf("error: unknown command %s\n", char_stack);
+                printf("error: unknown command %s\n", stack);
                 break;
         }
     }

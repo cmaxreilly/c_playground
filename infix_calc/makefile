@@ -13,3 +13,7 @@ debug:
 clean:
 	rm -r output.dSYM/
 
+dev: src/dev.c src/functions.c include/
+	gcc -o dev/dev src/dev.c src/functions.c -Iinclude -lm; dev/dev
+
+
