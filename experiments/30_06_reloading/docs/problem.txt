@@ -1,0 +1,43 @@
+Tuesday March 19, 2023
+
+My objective is to figure out how many cartridges of 30.06 I need to reload in
+order to make purchase profitable. This program will be a quick and dirty c
+program that figures out my profit margin based upon the number of rifle
+cartridges I reload, compared to if I had purchased a simlar load at retail
+price.
+
+Data I need:
+• Standard price of cartridges ( 1.5 dollars per bullet)
+• Price of bullets/quantity (Speer 165 grain bullets)
+• Price of powder/quantity (Accurate 2700 powder)
+• Price of primers:
+• Price of powder (Hodgdon accurate 4350)
+• Price of reloading equipment kit:
+    • Press (RCBS Special 5)
+    • Dies
+    • case primer device/tool
+    • Case trimer
+        • 30 caliber cullet
+    • Powder Trickler
+    • Scale (digital in grains)
+    • Case Lube (Hornady One Shot)
+    • Bullet puller √
+    • Caliper
+    • Case prep kit
+        • Primer pocket cleaner
+        • De-burring tool
+    • Reloading Manual (Speer or Hornady)
+
+Notes
+• Speer and RCBS are the same company.
+• 30.06 Die Reference Data
+    • Die Group: A
+    • RCBS
+• Rifle Bounce: Jeff cooper
+• RCBS, Hornady, Limane
+• Do not buy Lee anything
+
+So, it seems that the best way to do this would be to make my own brass by
+shooting a bunch cartridges. Dad recommends getting like 4 boxes of the same
+cartridges from the same lot, and then reloading the brass. Keep track of all of
+the number of times you have reloaded.

@@ -1,0 +1,3 @@
+Objective: Develop a C program that takes a number at the commanline and prints
+that number in the fibonacci sequence, as well as the ratio approaching the
+divine ratio.
