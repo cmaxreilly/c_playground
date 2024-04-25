@@ -5,7 +5,7 @@ using the formula
 
 where NG stands for next guess and LG stands for last guess. Write a func-
 tion that calculates the square root of a number using this method.
-    The initial guess will be the starting alue of LG. The program will
+    The initial guess will be the starting value of LG. The program will
 compute a value for NG using the formula given. The difference between
 NG and LG is checked to see whether these two guesses are almost identi-
 cal. If they are, NG is accepted as the square root; otherwise, the new
