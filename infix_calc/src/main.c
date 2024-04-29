@@ -1,5 +1,6 @@
 /*
  * My hack at an infix calculator
+ * 1st draft: Monday April 24, 2024
  */
 #define TEST 1
 
