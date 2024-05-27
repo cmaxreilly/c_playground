@@ -1,0 +1,17 @@
+The square root of a number N can be approximated by repeated calculation
+using the formula
+
+            NG = 0.5(LG + N/LG)
+
+where NG stands for next guess and LG stands for last guess. Write a func-
+tion that calculates the square root of a number using this method.
+    The initial guess will be the starting value of LG. The program will
+compute a value for NG using the formula given. The difference between
+NG and LG is checked to see whether these two guesses are almost identi-
+cal. If they are, NG is accepted as the square root; otherwise, the new
+guess (NG) becomes the last guess (LG) and the process is repeated (anoth-
+er value is computed for NG, the difference is checked, and so on). The
+loop should be repetaed until the difference is less than 0.005. Use an ini-
+tial guess of 1.0
+    Write a driver function and test your squre root function for the numbers
+4, 120.5, 88, 36.01, 10000, and 0.25.
