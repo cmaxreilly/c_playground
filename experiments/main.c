@@ -38,6 +38,9 @@ main(void)
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
+            case 'q':
+                printf("Session terminated successfully\n");
+                return(0);
             default:
                 printf("error: unknown command %s\n", s);
                 break;

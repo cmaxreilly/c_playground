@@ -1,15 +1,19 @@
 /*
  * My hack at an infix calculator
  * 1st draft: Monday April 24, 2024
+ * 2nd draft: Wednesday May 29.
  */
-#define TEST 1
+// Testing Parameters
+#define TEST 0
 
+/* Included libraries */
 #include <stdio.h>
 #include <stdlib.h>
 #include "include/stack.h"
 #include "include/precedence.h"
 #include "include/test.h"
 #include "include/char_handling.h"
+
 
 int
 main(void)
