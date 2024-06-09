@@ -1,10 +1,13 @@
 /* From 1st draft: Attempt at implementing a stack with a struct, with the help of Chat GPT */
 /* From 2nd Draft: Got rid of most GPT written code because I don't get how null pointers work, lol.
  * also wrote an effective push function that actually works with my struct. */
+/* Third Draft: Merging this project with the Ritchie calculator to figure out how to get my stack
+ * to work with a postfix calculator. */
 
 
 #include <stdio.h>
 #include <string.h>
+#include "../include/stack.h"
 
 #define MAX_STACK 100 // Define the maximum stack size
 #define MAX_TERM  100 // Define maximum term size in stack as 100 digits.
@@ -15,50 +18,13 @@ typedef struct {
 } Stack;
 
 /* function declarations */
-void push(Stack *stack, char *data);
-char* pop(Stack *stack);
+void m_push(Stack *stack, char *data);
+char* m_pop(Stack *stack);
 void print_stack(Stack *stack);
-
-int
-main()
-{
-    /* Example usage of generic stack */
-
-    int d = 'x';
-    char e = 120;
-    char a[3] = "10";
-    double b = 3.14;
-    char c = 'x';
-    Stack stack;
-    stack.top = 0;
-
-    printf("d = %d as int, %c as char.\n", d, d);
-    printf("e = %d as int and %c as char.\n", e, e);
-    printf("Stack top initialized to %d\n", stack.top);
-    push(&stack, a);
-    printf("value of a = %s pushed to stack\n", a);
-    printf("The top of the stack = %s\n", stack.data[stack.top-1]);
-
-    char *popped = pop(&stack);
-    printf("%s added to stack and removed from stack.\n", popped);
-/*
-    push(stack, &b);
-    push(stack, &c);
-
-    print_stack(stack);
-
-    int* popped_c = (int*)pop(stack);
-    printf("Popped element: %d\n", *popped_c);
-    print_stack(stack);
-    destroy_stack(stack);
-    */
-    return 0;
-}
-
 /* Function Definitions */
 
 void
-push(Stack *stack, char *data)
+m_push(Stack *stack, char *data)
 {
     if (stack->top < MAX_STACK)
     {
@@ -74,7 +40,7 @@ push(Stack *stack, char *data)
 
 
 char*
-pop(Stack *stack)
+m_pop(Stack *stack)
 {
     if (stack->top <= 0)
     {
@@ -83,4 +49,10 @@ pop(Stack *stack)
     }
     stack->top--;
     return stack->data[stack->top];
+}
+
+void
+test(void)
+{
+    printf("Hello, from stack.c!\n");
 }
