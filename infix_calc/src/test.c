@@ -1,5 +1,5 @@
 /* Driver code to test my stack functions */
-#include "include/stack.h"
+#include "../include/stack.h"
 
 void
 test_stack(void)

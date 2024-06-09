@@ -9,10 +9,10 @@
 /* Included libraries */
 #include <stdio.h>
 #include <stdlib.h>
-#include "include/stack.h"
-#include "include/precedence.h"
-#include "include/test.h"
-#include "include/char_handling.h"
+#include "../include/stack.h"
+#include "../include/precedence.h"
+#include "../include/test.h"
+#include "../include/char_handling.h"
 
 
 int

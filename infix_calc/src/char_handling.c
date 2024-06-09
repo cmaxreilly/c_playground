@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>     /* for atof()   */
 #include <ctype.h>
-#include "include/char_handling.h"
+#include "../include/char_handling.h"
 
 /* Global Variables */
 
