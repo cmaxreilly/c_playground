@@ -1,9 +1,9 @@
 CC=gcc
 CFLAGS=-I.
-DEPS = reverse_polish.h
+DEPS = include/reverse_polish.h
 
-%.o: %.c $(DEPS)
+bin/%.o: src/%.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-rev_polish: main.c
-	$(CC) -o rev_polish main.c
+bin/rev_polish: src/main.c
+	$(CC) -o bin/rev_polish src/main.c
