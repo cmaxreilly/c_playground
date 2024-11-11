@@ -2,76 +2,59 @@
  * My hack at an infix calculator
  * 1st draft: Monday April 24, 2024
  * 2nd draft: Wednesday May 29.
+ * 3rd draft: Monday November 11
  */
 // Testing Parameters
 #define TEST 0
 
 /* Included libraries */
 #include <stdio.h>
-#include <stdlib.h>
-#include "../include/stack.h"
-#include "../include/precedence.h"
-#include "../include/test.h"
-#include "../include/char_handling.h"
 
+/* Function declarations */
+int interactive_mode(void);
+int commandline_mode(void);
+void help_mode(void);
+
+/* Main function */
+int
+main(int argc, char *argv[])
+{
+	if (argc == 1)
+	{
+		interactive_mode();
+	}
+	else if (argc == 2)
+	{
+		printf("invalid argument.\n");
+		help_mode();
+	} else if (argc == 3)
+	{
+		if (argv[1] == "-c")
+			commandline_mode();
+		else
+			printf("invalid option\n");
+	}
+
+	return(0);
+}
+
+/* Function Definitions */
+int
+interactive_mode(void)
+{
+	printf("Enter expression at the prompt.\n >> ");
+	return(0);
+}
 
 int
-main(void)
+commandline_mode(void)
 {
-    int type;
-    double op2;
-    char stack[MAXOP];
-    char char_stack[MAXOP];
-    int char_stack_top;
-    double num_stack[MAXOP];
-    printf("Enter problem in reverse polish notation.\n");
-    printf("Enter 'q' to end session\n");
+	printf("entering commandline mode\n");
+	return(0);
+}
 
-    /* Testing char stack functions */
-    if (TEST == 1)
-    {
-        push_char(char_stack, 'p', &char_stack_top);
-        printf("Test: p = %c\n", pop_char(char_stack, &char_stack_top));
-    }
-
-    while ((type = getop(stack)) != EOF) {
-        switch (type) {
-            case 'q':
-                return 0;
-            case NUMBER:
-                /* push_char(atof(stack));
-                break; */
-                push_char(char_stack, atof(char_stack), &char_stack_top);
-                break;
-            case '+':
-                push(pop() + pop());
-                break;
-                /* push_char(char_stack, (pop_char(char_stack, &char_stack_top) + pop_char(char_stack,
-                                &char_stack_top)), &char_stack_top);*/
-                break;
-            case '*':
-                push(pop() * pop());
-                break;
-                /* push_char(char_stack, (pop() * pop()), &char_stack_top);
-                break; */
-            case '-':
-                op2 = pop();
-                push(pop() - op2);
-                break;
-            case '/':
-                op2 = pop();
-                if (op2 != 0.0)
-                    push(pop() / op2);
-                else
-                    printf("error: zero divisor\n");
-                break;
-            case '\n':
-                printf("\n%c.8g\n", pop_char(char_stack, &char_stack_top));
-                break;
-            default:
-                printf("error: unknown command %s\n", char_stack);
-                break;
-        }
-    }
-    return(0);
+void
+help_mode(void)
+{
+	;
 }
