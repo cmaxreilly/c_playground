@@ -10,6 +10,9 @@
 /* Included libraries */
 #include <stdio.h>
 
+/* Global constants */
+#define BUFSIZE 100
+
 /* Function declarations */
 int interactive_mode(void);
 int commandline_mode(void);
@@ -42,7 +45,11 @@ main(int argc, char *argv[])
 int
 interactive_mode(void)
 {
+	char input[BUFSIZE];
 	printf("Enter expression at the prompt.\n >> ");
+	fgets(input, sizeof(input), stdin);
+	printf("You entered %s\n", input);
+
 	return(0);
 }
 
