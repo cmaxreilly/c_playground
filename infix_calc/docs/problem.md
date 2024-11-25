@@ -67,7 +67,8 @@ correct number, the main function will display it and exit or loop, depending on
 
 - help-mode
 
-## Algorithm to solve Infix expressions Until the end of the expression is reached, get one
+## Algorithm to solve Infix expressions
+Until the end of the expression is reached, get one
 character and perform only one of the steps (1) through (5):
     1. If the character is an operand, push it onto the operand stack.
     2. If the characters is "(", then push it onto the operator stack. 
@@ -92,3 +93,14 @@ character and perform only one of the steps (1) through (5):
 ### Required data structures:
     - Operand Stack
     - Operator Stack
+
+## Notes
+- It looks like mostof the required functionality I require is in stdio.h, with a few functions from
+  stdlib.h and string.h.
+- I think that I could potentially yank the the first character from the string using sscanf. Here
+  is the algorithm
+    1. initialize a temp string variable called temp
+    2. set the output of sscanf to temp
+    3. figure out if temp is an operator, a operand, or an end parentheses.
+    4. Push the temp to the correct stack.
+    5. Repeat steps 1-4 until encountering an end parentheses, or a \0.
