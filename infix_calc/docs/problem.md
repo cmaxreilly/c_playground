@@ -104,3 +104,18 @@ character and perform only one of the steps (1) through (5):
     3. figure out if temp is an operator, a operand, or an end parentheses.
     4. Push the temp to the correct stack.
     5. Repeat steps 1-4 until encountering an end parentheses, or a \0.
+- Yesterday, I lost four hours worth of work because I didn't understand how the github desktop app
+  works. I really need to complete my github class on Codecademy before I do more of this to avoid
+  losing all of this work. I also need to make better use of branching, and create a separate
+  repository for my infix calculator so that I can learn what that looks like from all perspectives.
+  In fact, I think that I need to start acting as if I am mergin branches and making merge requests,
+  just like if I were in an open source development process
+- Plan for Monday November 25
+    - [ ] Move infix calculator from cplay to it's own repository, and add that to my github.
+    - [ ] Create a local branch of the infix calculator with some small changes.
+    - [ ] Create a pull request to merge those branches
+    - [ ] Confirm the pull request to merge the branches.
+### Things to learn how to do in Github
+- [ ] Create an issue
+- [ ] Create a pull request
+- [ ] Do a code review
