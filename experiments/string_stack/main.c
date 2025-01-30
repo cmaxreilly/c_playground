@@ -6,33 +6,13 @@
 #include<stdlib.h>
 
 struct Node {
-    int data;
+    char * data;
     struct Node* next;
 };
 
-static void
-reverse(struct Node** head_ref)
-{
-    struct Node* prev = NULL;
-    struct Node* current = *head_ref;
-    struct Node* next = NULL;
-    while (current != NULL)
-    {
-        // store next
-        next = current->next;
-        // reverse current node's pointers
-        current->next = prev;
-        // Move pointers one position ahead.
-        prev = current;
-        current = next;
-    }
-    *head_ref = prev;
-}
-
 /* Function to push a node */
-
 void
-push(struct Node** head_ref, int new_data)
+push(struct Node** head_ref, char * new_data)
 {
     struct Node* new_node
         = (struct Node*) malloc(sizeof(struct Node));
@@ -41,36 +21,14 @@ push(struct Node** head_ref, int new_data)
     (*head_ref) = new_node;
 }
 
-/* Function to print linked list */
-
-void
-print_list(struct Node* head)
-{
-    struct Node* temp = head;
-    while (temp != NULL)
-    {
-        printf("%d ", temp->data);
-        temp = temp->next;
-    }
-}
-
 /* Driver code */
-
 int
 main()
 {
-    struct Node* head = NULL;
-    push(&head, 10);
-    push(&head, 11);
-    push(&head, 90);
-    push(&head, 50);
-    push(&head, 69);
-
-    printf("Given Linked List\n");
-    print_list(head);
-    reverse(&head);
-    printf("\nReversed Linked List\n");
-    print_list(head);
-    printf("\n");
+    struct Node head;
+    printf("Hello! This utility pops and pushes string values to a stack implemented with a linked list.\n");
+    printf("Please limit word lenght to 20 characters or less.\n");
+    printf("Initializing stack...\n");
+    printf("Stack initialialized.\n");
     return 0;
 }
