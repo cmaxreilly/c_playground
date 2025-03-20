@@ -42,4 +42,9 @@ bisect( double x_left,          /* input  - endpoints of interval in    */
            f_left,      /* f(x_left)            */
            f_mid,       /* f(x_mid)             */
            f_right;     /* f(x_right)           */
-           
+    int    root_found = FALSE;
+
+    /* Computes function values at initial endpoints of interval  */
+    f_left = f(x_left);
+    f_right = f(x_right);
+}

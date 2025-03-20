@@ -1,6 +1,5 @@
 /*
  * Author: C. Maxwell Reilly
- * First Draft: May 27, 2024
  *
  * Program demonstrating the use of an enumerated type
  */
