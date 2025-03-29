@@ -1,4 +1,5 @@
-#include <include/reverse_polish.h>
+
+#include "../include/reverse_polish.h"
 
 /* Global Variables */
 
@@ -6,6 +7,59 @@ int sp = 0;         /* next free stack position */
 double val[MAXVAL]; /* value stack */
 char buf[BUFSIZE];  /* buffer for ungetch */
 int bufp = 0;
+
+int
+main(void)
+{
+    int type;
+    double op2;
+    char s[MAXOP];
+    printf("Enter your problem in reverse polish notation\n");
+    printf(" >> ");
+    while ((type = getop(s)) != EOF) {
+        switch (type) {
+            case NUMBER:
+                push(atof(s)); /* converts the characters in s to a floating point number and pushes
+                                  them to val. */
+                break;
+            case '+':
+                push(pop() + pop());
+                break;
+            case '*':
+                push(pop() * pop());
+                break;
+            case '-':
+                op2 = pop();
+                push(pop() - op2);
+                break;
+            case '/':
+                op2 = pop();
+                if (op2 != 0.0)
+                    push(pop() / op2);
+                else
+                    printf("error: zero divisor\n");
+                break;
+            case '%':
+                op2 = pop();
+                if (op2 != 0.0)
+                    push((int)pop() % (int)op2);
+                else
+                    printf("error: zero divisor\n");
+                break;
+            case '\n':
+                printf("\t%.8g\n", pop());
+                printf(" >> ");
+                break;
+            case 'q':
+                printf("Session terminated successfully\n");
+                return(0);
+            default:
+                printf("error: unknown command %s\n", s);
+                break;
+        }
+    }
+    return 0;
+}
 
 void push(double f);
 /* pop: pop and return top value from stack */
