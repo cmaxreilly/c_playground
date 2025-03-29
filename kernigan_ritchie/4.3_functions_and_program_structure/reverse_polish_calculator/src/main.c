@@ -117,10 +117,10 @@ ungetch(int c)  /* push character back on input */
 int
 getop(char s[])
 {
-    int i, c;
+    int i, c = getch();
 
-    while((s[0] = c = getch()) == ' ' || c == '\t')
-        ; /* Processes the whitespace at the beginning of the stdin.*/
+    while((s[0] = c)  == ' ' || c == '\t')
+        c = getch(); /* Processes the whitespace at the beginning of the stdin.*/
     s[1] = '\0';
     if (!isdigit(c) && c != '.')
         return c;   /* not a number */
