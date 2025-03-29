@@ -9,6 +9,8 @@ int getch_buf[BUFMAX]; /* For ungetch */
 int bufp = 0; /* pointer for buffer */
 
 int getch(void);
+void ungetch(int);
+
 int
 main(void)
 {
@@ -31,5 +33,19 @@ getch(void)
     else
     {
         return getchar();
+    }
+}
+
+void
+ungetch(int character)
+{
+    if (bufp > BUFMAX)
+    {
+        printf("Buffer overflow!\n");
+    }
+    else
+    {
+        bufp++;
+        getch_buf[bufp] = character;
     }
 }
