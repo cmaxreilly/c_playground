@@ -12,7 +12,11 @@ int getch(void);
 int
 main(void)
 {
+    int my_character;
     printf("\nHello, world!\n\n");
+    printf("Enter a character >");
+    my_character = getch();
+    printf("your character was %c.\n", my_character);
     return 0;
 }
 
