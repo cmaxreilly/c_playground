@@ -61,14 +61,14 @@ main(void)
                 if (op2 != 0.0)
                     push(pop() / op2);
                 else
-                    printf("error: zero divisor\n");
+                    printf("error: zero division\n");
                 break;
             case '%':
                 op2 = pop();
                 if (op2 != 0.0)
                     push((int)pop() % (int)op2);
                 else
-                    printf("error: zero divisor\n");
+                    printf("error: zero divion\n");
                 break;
             case '\n':
                 printf("\t%.8g\n", pop());
