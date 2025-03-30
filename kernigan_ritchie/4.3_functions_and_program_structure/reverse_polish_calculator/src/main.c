@@ -1,6 +1,6 @@
 #include <stdio.h>      /* for getchar(), printf() */
 #include <stdlib.h>     /* for atof()   */
-#include <ctype.h>
+#include <ctype.h>      /* for isdigit() */
 
 #define NUMBER   '0'     /* signal that a number was found   */
 #define BUFSIZE 100     /* Buffer size for ungetch */
@@ -96,10 +96,9 @@ getch(void) /* get a (possibly pushed back) character */
     else
         return getchar();
 
-    /* Original implementation. Very code golfy and confusing for me.
-     * return (bufp > 0) ? buf[--bufp] : getchar();
-     */
 }
+    /* Original implementation. Very code golfy and confusing for me.
+     * return (bufp > 0) ? buf[--bufp] : getchar(); */
 
 /* Pushing the character back on the input is actually more of a metaphor. the standard input is
  * read only, and so getchar() can only move forward through the input. We work around this by simply
@@ -117,14 +116,13 @@ ungetch(int c)  /* push character back on input */
 int
 getop(char s[])
 {
-    int i, c = getch();
+    int i = 0, c = getch();
 
     while((s[0] = c)  == ' ' || c == '\t')
         c = getch(); /* Processes the whitespace at the beginning of the stdin.*/
     s[1] = '\0';
     if (!isdigit(c) && c != '.')
         return c;   /* not a number */
-    i = 0;
     if (isdigit(c))
         while (isdigit(s[++i] = c = getch()))
             ;
