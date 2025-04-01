@@ -1,6 +1,7 @@
 #include <stdio.h>      /* for getchar(), printf() */
 #include <stdlib.h>     /* for atof()   */
 #include <ctype.h>      /* for isdigit() */
+#include <math.h>       /* for pow() */
 
 #define NUMBER   '0'     /* signal that a number was found   */
 #define BUFSIZE 100     /* Buffer size for ungetch */
@@ -70,6 +71,9 @@ main(void)
                 else
                     printf("error: zero divion\n");
                 break;
+            case '^':
+                op2 = pop();
+                push(pow(pop(), op2));
             case '\n':
                 printf("\t%.8g\n", pop());
                 printf(" >> ");
