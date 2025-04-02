@@ -24,3 +24,32 @@ should consider if I would like to do so in the future.
 - use an abritrary precision library like MPFR
 - Consider Machin's formula, which converges much faster than Leibniz's formula.
 - Use parallelization (Open MP)
+
+## Optimization
+
+### Todo
+
+### Data
+Inital time for 1,000,000 iterations: ./output  0.82s user 1.82s system 77% cpu 3.437 total
+- Remove printf statements to reduce load on operating system
+    - ./output  0.02s user 0.00s system 97% cpu 0.019 total
+- Going to try time for 10 million iterations.
+    - ./output  0.16s user 0.00s system 99% cpu 0.158 total
+- 100 million iterations
+    - ./output  1.62s user 0.00s system 99% cpu 1.619 total
+    - Accurate to 7 decimals
+- 1 billion iterations
+    - ./output  15.12s user 0.00s system 99% cpu 15.124 total
+    - Accurate to 8 decimals
+- Remove unneccessary conditionals
+    - ./output  3.57s user 0.00s system 99% cpu 3.570 total
+    - Accurate to 8 decimals
+- 5 billion iterations
+    - ./output  17.92s user 0.00s system 99% cpu 17.934 total
+    - Accurate to 9 decimals
+    - I suspect that, at this point, it is probably rounding error that is resulting in my issue.
+      I probably need to do a bit of a redesign at this point if I want better accuracy. But, I did
+      get to the point where I have 5 billion iterations in less than a minute!
+- use an abritrary precision library like MPFR
+- Consider Machin's formula, which converges much faster than Leibniz's formula.
+- Use parallelization (Open MP)
