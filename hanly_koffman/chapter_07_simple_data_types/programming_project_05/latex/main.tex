@@ -1,10 +1,14 @@
 % Preamble.
 \documentclass{article}
-\begin{document}
+
+\title{Programming Project 5}
 \author{Max Reilly, copied from Hanly and Koffman}
 \date{April 4, 2024}
 
-\title{Programming Project 5}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+
+\begin{document}
 \maketitle
 \section{Assignment}
 In this chapter we studied the bisection method for finding a root of an equation.
@@ -34,6 +38,8 @@ $$
 \frac{y_{j+1} - y_j}{x_{j+1} - x_j} = m
 $$
 
+% \includegraphics{hk_fig_7.12.pdf}
+\includepdf[pages=-]{hk_fig_7.12.pdf}
 Where $m$ is the slope of the line between points $(x_{j+1}, y_{j+1})$ and $(x_j, y_j$. In Fig
 7.12, we see that $y_{j+1}$ is zero, $y_j$ is $f(x_j)$, and $m$ is $f'(x_j)$; therfore by substituting
 and rearranging terms, we get
