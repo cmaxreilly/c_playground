@@ -24,8 +24,10 @@ main(void)
     int         *array_of_nums;
     planet_t    *array_of_planets;
     int         str_size, num_nums, num_planets, i;
-    printf("Enter string lenght and string >> ");
+    printf("Enter string length and string >> ");
     scanf("%d", &str_size);
+    string1 = (char *)calloc(num_nums, sizeof (char));
+    scanf("%s", string1);
 
     printf("\nHow many numbers? >> ");
     scanf("%d", &num_nums);
@@ -39,6 +41,7 @@ main(void)
     array_of_planets = (planet_t *)calloc(num_planets, sizeof (planet_t));
     for (i = 0; i < num_planets; i++)
         scan_planet(&array_of_planets[i]);
+
     return 0;
 }
 
