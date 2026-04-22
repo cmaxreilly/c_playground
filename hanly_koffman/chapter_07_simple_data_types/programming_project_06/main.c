@@ -17,9 +17,17 @@ main(void)
 double
 trap(double a, double b, double n, double (*f) (double) )
 {
+    double h = (b - a ) / n;
     double sum = 0;
-    sum += f(n);
-    return sum;
+    int i;
+
+    for (   i = 1;
+            i < n;
+            i++)
+    {
+        sum += f(i/n);
+    }
+    return (h / 2) * (f(a) + f(b) + sum);
 }
 
 double
