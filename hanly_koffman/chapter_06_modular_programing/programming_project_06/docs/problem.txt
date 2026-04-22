@@ -1,0 +1,35 @@
+The electric company charges according to the following rate schedule:
+9 cents per kilowatt-hour (kwh) for the first 300 kwh
+8 cents per kwh for the next 300 kwh (up to 600 kwh)
+6 cents per kwh for the next 400 kwh (up to 1000 kwh)
+5 cents per kwh for all electricity used over 1000kwh
+
+Write a function to compute the total charge for each customer. Write a
+main functoin to call the charge calculation function using the follow-
+ing data:
+
+Customer            Kilowatt-hours
+Number              Used
+-----------------------------------
+123                 725
+205                 115
+464                 600
+596                 327
+613                 1011
+722                 47
+
+The program should print a three-column chart listing the customer number,
+the killowatt-hours used, and the charge for each customer. The program
+should also compute and print the number of customers, the total kilowatt-
+hours used, and total charges.
+
+Questions/thoughts
+- do I know how to open a file yet?
+- I could probably make each entry into a struct, but I haven't really done that yet.
+    seems like it should only be functional
+- How the heck do I store this data?
+    - I think I just hardcode it in function calls, lol. It is small enought that it 
+    shouldn't be to bad...
+- Update: It looks like I should know how to open a file based upon page 78, so I think
+that might solve my data storage problems!
+- [ ] Make a `dat` directory and add all data
