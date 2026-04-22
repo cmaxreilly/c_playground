@@ -5,6 +5,8 @@
 
 #include <stdio.h>
 
+int calculate_charge(int kwh_usage);
+
 int
 main(void)
 {
@@ -19,15 +21,30 @@ main(void)
     data = fopen("dat/customer_kilowatt-hours.dat", "r");
     fscanf(data, "%d", &customer_number);
     fscanf(data, "%d", &customer_usage);
-    printf("%d: %d, usage: %d\n", label_number, customer_number, customer_usage);
+    printf("%d: %d, usage: %d price: %d cents.\n", label_number, customer_number, customer_usage, calculate_charge(customer_usage));
     while (fscanf(data, "%d", &customer_number) == 1)
     {
         fscanf(data, "%d", &customer_usage);
         label_number++;
-        printf("%d: customer %d: %d kwh\n", label_number, customer_number, customer_usage);
+        printf("%d: customer %d: %d kwh price: %d cents.\n", label_number, customer_number, customer_usage, calculate_charge(customer_usage));
     }
 
 
     fclose(data);
     return 0;
+}
+
+int
+calculate_charge(int kwh_usage) /* in cents */
+{
+    if (kwh_usage < 0)
+        return 0;
+    if (kwh_usage < 300)
+        return kwh_usage * 9;
+    if (kwh_usage <= 600)
+        return 300 * 9 + (kwh_usage - 300) * 8;
+    if (kwh_usage <= 1000)
+        return (300 * 9) + (300 * 8) + ((kwh_usage - 600) * 6);
+    if (kwh_usage > 1000)
+        return (300 * 9) + (300 * 8) + (400 * 6) + ((kwh_usage - 1000) * 5);
 }
