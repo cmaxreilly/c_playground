@@ -21,12 +21,14 @@ main(void)
     data = fopen("dat/customer_kilowatt-hours.dat", "r");
     fscanf(data, "%d", &customer_number);
     fscanf(data, "%d", &customer_usage);
-    printf("%d: %d, usage: %d price: %d cents.\n", label_number, customer_number, customer_usage, calculate_charge(customer_usage));
+    printf("   | customer | usage | charge \n");
+    printf("-------------------------------\n");
+    printf("%2d |      %3d |  %4d | $%3.2lf\n", label_number, customer_number, customer_usage, (float) calculate_charge(customer_usage)/100);
     while (fscanf(data, "%d", &customer_number) == 1)
     {
         fscanf(data, "%d", &customer_usage);
         label_number++;
-        printf("%d: customer %d: %d kwh price: %d cents.\n", label_number, customer_number, customer_usage, calculate_charge(customer_usage));
+        printf("%2d |      %3d |  %4d | $%3.2lf\n", label_number, customer_number, customer_usage, (float) calculate_charge(customer_usage)/100);
     }
 
 
