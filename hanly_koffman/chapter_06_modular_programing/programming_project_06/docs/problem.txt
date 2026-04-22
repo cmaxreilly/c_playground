@@ -32,4 +32,7 @@ Questions/thoughts
     shouldn't be to bad...
 - Update: It looks like I should know how to open a file based upon page 78, so I think
 that might solve my data storage problems!
-- [ ] Make a `dat` directory and add all data
+- [x] Make a `dat` directory and add all data
+- Alright, I got my data file open. Now I just need to figure out a way to get my main
+    function to iterate through it. Gonna be done for the day though, I have more habits
+    to get through, lol.
