@@ -1,0 +1,11 @@
+Programming project no 9 from Chapter 6
+
+Write a function that computes and displays a table of negative powers of tow
+(2^-1, 2^-2, and so on) as both common fractions and decimals as shown next.
+The range of powers printed should be determined by the function's input
+arguments. Test your function using a driver
+
+Power of 2      Fraction        Decimal Value
+    -1          1/2                 0.5000
+    -2          1/4                 0.2500
+    -3          1/8                 0.1250
