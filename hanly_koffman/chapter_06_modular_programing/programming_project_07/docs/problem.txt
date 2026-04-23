@@ -1,0 +1,22 @@
+Programming Project 7, chapter 6
+
+When an aircraft or an automobile is moving through the atmosphere, it
+must overcome a force called drag that works against the motion of the vehi-
+cle. The drag force can be expressed as
+
+    F = 1/2 CD * A * p * V^2
+
+Where F is the force (in newtons), CD is the drag coefficient,, A is the
+projected area of the vehicle perpendicular to the velocity vector (in m^2),
+p is the density of the gas or fluid through which the body is traveling
+(kg/m^3), and V is the body's velocity. The drag coefficient CD has a com-
+plex derivation and is frequently an empirical quantity. Sometimes the
+drag coefficient has its own dependencies on velocities: For an automobile,
+the range is from approximately 0.2 (for a very streamlined vehicle)
+through about 0.5. For simplicity, assume a streamlined passenger vehicle
+is moving through air at sea level (where p = 1.23 kg/m^3). Write a program
+that allows a user to input A and CD interactively and calls a function to
+compute and return the drag force. Your program should call the drag
+force functoin repeatedly and display a table showing the drag force for the
+inpute shape for a range of velocities from 0 m/s to 40 m/s in increments of
+5 m/s.
