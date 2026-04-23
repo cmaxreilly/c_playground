@@ -1,0 +1,17 @@
+Programming project no 8 from Chapter 6
+
+Write a program to model a simple calculator. Each data line should con-
+sist of the next operation to be performed from the list below and the
+right operand. Assume the left operand is the accumulator value (initial
+value of 0). You need a function scan_data with two output parameters
+that returns the operator and right operand scanned from the data line. You
+need a function do_next_op that performs the required operatoin.
+do_next_op has tow input parameters (the operator and the operand) and
+one input/output parameter (the accumulator). The valid operators are:
+
++       add
+-       subtract
+*       multiply
+/       divide
+^       power(raise left operand to power of right operand)
+q       quit
