@@ -5,7 +5,7 @@ sist of the next operation to be performed from the list below and the
 right operand. Assume the left operand is the accumulator value (initial
 value of 0). You need a function scan_data with two output parameters
 that returns the operator and right operand scanned from the data line. You
-need a function do_next_op that performs the required operatoin.
+need a function do_next_op that performs the required operation.
 do_next_op has tow input parameters (the operator and the operand) and
 one input/output parameter (the accumulator). The valid operators are:
 
@@ -15,3 +15,16 @@ one input/output parameter (the accumulator). The valid operators are:
 /       divide
 ^       power(raise left operand to power of right operand)
 q       quit
+
+You calculator should display the accumulator value after each operation. A
+sample run follows:
+
+> + 5.0
+result so far is 5.0
+> ^2
+result so far is 25.0
+> / 2
+result so far is 12.5
+q 0
+final result is 12.5
+

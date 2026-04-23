@@ -4,33 +4,54 @@
  */
 
 #include <stdio.h>
+#include <math.h>
 
-double calc_drag(double area, double drag_coefficient, double velocity);
+void scan_data(char* operator, double* operand);
+void do_next_op(char operator, double operand, double* accumulator);
 
 int
 main(void)
 {
-    double area, drag_coefficient;
-    int i;
-    printf("Enter frontal area of vehicle in m^2 > ");
-    scanf("%lf", &area);
-    printf("Enter drag coefficient of vehicle > ");
-    scanf("%lf", &drag_coefficient);
-    printf("Area = %4.2lf m^2, Drag Coefficient = %lf\n", area, drag_coefficient);
-    printf(" Speed  |   Drag    |\n");
-    printf("---------------------\n");
-    for (i=0; i<=8; i++)
+    char operator;
+    double operand, accumulator = 0.0;
+    printf("Enter your operand and floating point number below.\n");
+    printf("Enter \"q 0\" to quit\n");
+    printf(" >");
+    while (operator != 'q')
     {
-        double velocity = (double) i * 5.0;
-        printf(" %2.0f m/s | %7.2f N |\n", velocity, calc_drag(area, drag_coefficient, velocity));
+        scan_data(&operator, &operand);
+        do_next_op(operator, operand, &accumulator);
+        printf("Value so far: %lf\n", accumulator);
+        printf(" >");
     }
     return 0;
 }
 
-double
-calc_drag(double area, double drag_coefficient, double velocity)
+void
+scan_data(char* operator, double* operand)
 {
-    double force;
-    force = .5 * drag_coefficient * area * 1.23 * velocity * velocity;
-    return force;
+    scanf("%c", operator);
+    scanf("%lf", operand);
+}
+
+void
+do_next_op(char operator, double operand, double* accumulator)
+{
+    switch (operator){
+        case '+':
+            *accumulator += operand;
+            break;
+        case '-':
+            *accumulator -= operand;
+            break;
+        case '*':
+            *accumulator *= operand;
+            break;
+        case '/':
+            *accumulator = *accumulator / operand;
+            break;
+        case '^':
+            *accumulator = pow(*accumulator, operand);
+            break;
+    }
 }
