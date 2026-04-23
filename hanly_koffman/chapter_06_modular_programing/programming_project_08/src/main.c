@@ -16,21 +16,21 @@ main(void)
     double operand, accumulator = 0.0;
     printf("Enter your operand and floating point number below.\n");
     printf("Enter \"q 0\" to quit\n");
-    printf(" >");
-    while (operator != 'q')
-    {
+    do {
+        printf(" >");
         scan_data(&operator, &operand);
         do_next_op(operator, operand, &accumulator);
         printf("Value so far: %lf\n", accumulator);
-        printf(" >");
-    }
+    } while (operator != 'q')
+    printf("Final value: %lf\n", accumulator);
     return 0;
 }
 
 void
 scan_data(char* operator, double* operand)
 {
-    scanf("%c", operator);
+    /* Whitespace here is important. Wild! */
+    scanf(" %c", operator);
     scanf("%lf", operand);
 }
 
@@ -52,6 +52,9 @@ do_next_op(char operator, double operand, double* accumulator)
             break;
         case '^':
             *accumulator = pow(*accumulator, operand);
+            break;
+        default:
+            printf("Invalid operator\n");
             break;
     }
 }
