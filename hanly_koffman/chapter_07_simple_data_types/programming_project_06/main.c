@@ -11,10 +11,21 @@ double f(double x);
 int
 main(void)
 {
-    // printf("\nSine of 3.1415 is %f\n", sine_func(3.1415));
-    // printf("Should be = 0.00\n");
-    printf("Definite integral of sin(0, 3.1415) = 2\n");
-    printf("This number should be the same: %f\n", trap(0, 3.1415, 9.0, sine_func));
+    printf("\n");
+    printf("Calculating definite integral of sin from [0, 3.1415] ...\n");
+    for     (int i = 1;
+            i <= 7;
+            i++) {
+        printf("Using %d subintervals: %lf\n", (int) pow(2, i), trap(0, 3.1415, pow(2, i), sine_func));
+    }
+    printf("\n");
+    printf("Calculating definite integral of sqrt(4 - x^2) from [-2, 2] ...\n");
+    for     (int i = 1;
+            i <= 7;
+            i++) {
+        printf("Using %d subintervals: %lf\n", (int) pow(2, i), trap(-2, 2, pow(2, i), f));
+    }
+    printf("\n");
     return 0;
 }
 
